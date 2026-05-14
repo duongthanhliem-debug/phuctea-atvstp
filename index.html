@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phúc Tea – Kiểm tra ATTP</title>
+<link rel="icon" type="image/png" href="logo1.png">
+<link rel="apple-touch-icon" href="logo1.png">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange:#E65100; --orange-2:#FF8A50; --orange-bg:#FFF3E0; --orange-border:#FFCC80;
+  --green:#2E7D32; --green-bg:#E8F5E9; --green-border:#A5D6A7;
+  --red:#C62828; --red-bg:#FFEBEE; --red-border:#EF9A9A;
+  --yellow-text:#E65100; --yellow-bg:#FFF8E1; --yellow-border:#FFE082;
+  --blue:#0D47A1; --blue-bg:#E3F2FD; --blue-border:#90CAF9;
+  --purple:#4A148C; --purple-bg:#F3E5F5; --purple-border:#CE93D8;
+  --text:#111827; --text-2:#6B7280; --text-3:#9CA3AF;
+  --border:#E5E7EB; --bg:#F3F4F6; --white:#FFFFFF;
+  --radius:16px; --radius-sm:10px;
+  --shadow:0 1px 3px rgba(0,0,0,0.07),0 8px 32px rgba(0,0,0,0.07);
+  --shadow-sm:0 1px 2px rgba(0,0,0,0.06),0 2px 8px rgba(0,0,0,0.05);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+.page{display:none;} .page.active{display:block;}
+.container{max-width:600px;margin:0 auto;padding:20px 16px 60px;}
+
+/* BRAND */
+.brand{display:flex;align-items:center;gap:12px;margin-bottom:24px;}
+.brand-logo{width:44px;height:44px;border-radius:12px;overflow:hidden;background:var(--orange-bg);display:flex;align-items:center;justify-content:center;}
+.brand-logo img{width:100%;height:100%;object-fit:contain;}
+.brand-logo-fallback{font-size:22px;}
+.brand-info{}
+.brand-name{font-size:16px;font-weight:700;color:var(--orange);}
+.brand-sub{font-size:12px;color:var(--text-2);}
+
+/* CARDS */
+.card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;margin-bottom:16px;}
+.card-accent{border-top:4px solid var(--orange);}
+
+/* INTRO */
+.intro-title{font-size:22px;font-weight:800;line-height:1.3;margin-bottom:8px;}
+.intro-desc{font-size:14px;color:var(--text-2);line-height:1.7;margin-bottom:20px;}
+.stat-row{display:flex;gap:10px;margin-bottom:22px;}
+.stat{flex:1;background:var(--bg);border-radius:var(--radius-sm);padding:12px;text-align:center;}
+.stat-n{font-size:22px;font-weight:700;color:var(--orange);}
+.stat-l{font-size:11px;color:var(--text-2);margin-top:2px;}
+
+/* FORM */
+.field{margin-bottom:16px;}
+.label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--text);}
+.label span{color:var(--orange);}
+.input{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-family:inherit;color:var(--text);background:var(--white);outline:none;transition:border .2s;}
+.input:focus{border-color:var(--orange);}
+.input.error{border-color:var(--red);}
+.select-wrap{position:relative;}
+.select{width:100%;padding:12px 36px 12px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-family:inherit;color:var(--text);background:var(--white);outline:none;transition:border .2s;appearance:none;-webkit-appearance:none;}
+.select:focus{border-color:var(--orange);}
+.select.error{border-color:var(--red);}
+.select-arrow{position:absolute;right:14px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--text-2);}
+.err-msg{font-size:12px;color:var(--red);margin-top:4px;display:none;}
+.err-msg.show{display:block;}
+
+/* BUTTON */
+.btn{width:100%;padding:15px;border:none;border-radius:var(--radius-sm);font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;transition:all .15s;}
+.btn-primary{background:var(--orange);color:#fff;}
+.btn-primary:hover{background:#BF360C;}
+.btn-primary:disabled{opacity:.35;cursor:not-allowed;}
+.btn-secondary{background:var(--white);color:var(--text-2);border:1.5px solid var(--border);}
+.btn-secondary:hover{background:var(--bg);}
+.btn-sm{width:auto;padding:10px 18px;font-size:14px;}
+
+/* PROGRESS */
+.prog-wrap{margin-bottom:20px;}
+.prog-top{display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px;}
+.prog-sec{color:var(--orange);font-weight:600;}
+.prog-count{color:var(--text-2);}
+.prog-bar{height:6px;background:var(--border);border-radius:999px;overflow:hidden;}
+.prog-fill{height:100%;background:var(--orange);border-radius:999px;transition:width .4s cubic-bezier(.4,0,.2,1);}
+
+/* SECTION BADGE */
+.sec-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;margin-bottom:12px;letter-spacing:.3px;text-transform:uppercase;}
+.badge-bep{background:var(--orange-bg);color:#BF360C;border:1px solid var(--orange-border);}
+.badge-pha{background:var(--green-bg);color:#1B5E20;border:1px solid var(--green-border);}
+.badge-kho{background:var(--blue-bg);color:#0D47A1;border:1px solid var(--blue-border);}
+.badge-con{background:var(--purple-bg);color:#4A148C;border:1px solid var(--purple-border);}
+
+/* QUESTION */
+.q-text{font-size:16px;font-weight:600;line-height:1.6;margin-bottom:18px;}
+.opts{display:flex;flex-direction:column;gap:8px;}
+.opt{width:100%;text-align:left;padding:13px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-family:inherit;cursor:pointer;background:var(--white);color:var(--text);transition:all .15s;display:flex;align-items:center;gap:12px;}
+.opt:hover{border-color:var(--orange);background:var(--orange-bg);}
+.opt-dot{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--border);flex-shrink:0;transition:all .15s;}
+.opt.yes{border-color:#66BB6A;background:var(--green-bg);color:var(--green);font-weight:600;}
+.opt.yes .opt-dot{background:#66BB6A;border-color:#66BB6A;}
+.opt.partial{border-color:#FFCA28;background:var(--yellow-bg);color:var(--yellow-text);font-weight:600;}
+.opt.partial .opt-dot{background:#FFCA28;border-color:#FFCA28;}
+.opt.no{border-color:#EF9A9A;background:var(--red-bg);color:var(--red);font-weight:600;}
+.opt.no .opt-dot{background:#EF9A9A;border-color:#EF9A9A;}
+.opt.unknown{border-color:#D1D5DB;background:var(--bg);color:var(--text-2);font-weight:600;}
+.opt.unknown .opt-dot{background:#D1D5DB;border-color:#D1D5DB;}
+
+/* NAV */
+.nav{display:flex;gap:10px;margin-top:4px;}
+.btn-back{padding:15px 20px;background:var(--white);color:var(--text-2);border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:inherit;cursor:pointer;transition:all .15s;flex-shrink:0;}
+.btn-back:hover{background:var(--bg);}
+
+/* RESULT */
+.score-hero{text-align:center;padding:8px 0 20px;}
+.score-ring{width:130px;height:130px;border-radius:50%;margin:0 auto 14px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:5px solid;}
+.ring-great{border-color:#66BB6A;background:var(--green-bg);color:var(--green);}
+.ring-ok{border-color:#FFCA28;background:var(--yellow-bg);color:var(--yellow-text);}
+.ring-bad{border-color:#EF9A9A;background:var(--red-bg);color:var(--red);}
+.score-pct{font-size:36px;font-weight:800;}
+.score-pts{font-size:12px;color:var(--text-2);margin-top:2px;}
+.r-title{font-size:20px;font-weight:800;margin-bottom:6px;}
+.r-sub{font-size:14px;color:var(--text-2);line-height:1.7;}
+.divider{height:1px;background:var(--border);margin:20px 0;}
+.ss-title{font-size:13px;font-weight:700;margin-bottom:12px;}
+.ss-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:13px;}
+.ss-label{flex:1;color:var(--text-2);}
+.ss-bar{width:100px;height:8px;background:var(--border);border-radius:4px;overflow:hidden;}
+.ss-fill{height:100%;border-radius:4px;}
+.ss-pct{width:36px;text-align:right;font-weight:700;font-size:13px;}
+
+/* ISSUES */
+.issue-item{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--text-2);line-height:1.5;}
+.issue-item:last-child{border-bottom:none;}
+.i-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px;}
+.dot-red{background:#EF9A9A;} .dot-yellow{background:#FFCA28;}
+.chip{display:inline-block;font-size:11px;padding:2px 7px;border-radius:999px;margin-left:6px;font-weight:600;}
+.chip-red{background:var(--red-bg);color:var(--red);}
+.chip-yellow{background:var(--yellow-bg);color:var(--yellow-text);}
+
+/* QUICK ACTIONS */
+.qa-wrap{}
+.qa-item{display:flex;gap:12px;align-items:flex-start;padding:12px;background:var(--bg);border-radius:var(--radius-sm);margin-bottom:8px;border-left:3px solid var(--orange);}
+.qa-num{width:22px;height:22px;border-radius:50%;background:var(--orange);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.qa-text{font-size:13px;line-height:1.6;color:var(--text);}
+.qa-text strong{color:var(--orange);}
+
+/* DOCS TO SEND */
+.doc-item{display:flex;gap:10px;align-items:center;padding:10px 12px;background:var(--blue-bg);border-radius:var(--radius-sm);margin-bottom:8px;font-size:13px;color:var(--blue);}
+.doc-icon{font-size:18px;flex-shrink:0;}
+
+/* CONTACT */
+.contact-card{background:var(--green-bg);border-radius:var(--radius-sm);padding:16px;margin-bottom:12px;border:1px solid var(--green-border);}
+.contact-title{font-size:13px;font-weight:700;color:var(--green);margin-bottom:4px;}
+.contact-info{font-size:13px;color:var(--text-2);line-height:1.7;margin-bottom:12px;}
+.btn-zalo{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px;background:#0068FF;color:#fff;border:none;border-radius:var(--radius-sm);font-size:14px;font-weight:700;font-family:inherit;cursor:pointer;text-decoration:none;transition:all .15s;}
+.btn-zalo:hover{background:#0052CC;}
+.ops-note{background:var(--blue-bg);border-radius:var(--radius-sm);padding:14px 16px;margin-bottom:12px;border:1px solid var(--blue-border);}
+.ops-note-title{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:4px;}
+.ops-note-text{font-size:13px;color:var(--text-2);line-height:1.7;}
+
+.footer-note{font-size:12px;color:var(--text-3);text-align:center;margin-top:10px;line-height:1.6;}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: INTRO -->
+<div class="page active" id="page-intro">
+<div class="container">
+  <div class="brand">
+    <div class="brand-logo">
+      <img src="logo1.png" alt="Phúc Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <span class="brand-logo-fallback" style="display:none">🍵</span>
+    </div>
+    <div class="brand-info">
+      <div class="brand-name">Phúc Tea</div>
+      <div class="brand-sub">Hệ thống kiểm tra nội bộ</div>
+    </div>
+  </div>
+
+  <div class="card card-accent">
+    <div class="intro-title">Kiểm tra An toàn Thực phẩm</div>
+    <div class="intro-desc">Tự đánh giá mức độ tuân thủ tiêu chuẩn vệ sinh ATTP tại chi nhánh theo đúng SOP Phúc Tea. Kết quả sẽ được gửi về bộ phận Operations.</div>
+    <div class="stat-row">
+      <div class="stat"><div class="stat-n">15</div><div class="stat-l">Câu hỏi</div></div>
+      <div class="stat"><div class="stat-n">4</div><div class="stat-l">Khu vực</div></div>
+      <div class="stat"><div class="stat-n">~3'</div><div class="stat-l">Thời gian</div></div>
+    </div>
+
+    <div class="field">
+      <label class="label">Tên người khảo sát <span>*</span></label>
+      <input class="input" id="inp-surveyor" type="text" placeholder="Họ và tên của bạn">
+      <div class="err-msg" id="err-surveyor">Vui lòng nhập tên người khảo sát</div>
+    </div>
+
+    <div class="field">
+      <label class="label">Tên cửa hàng <span>*</span></label>
+      <div class="select-wrap">
+        <select class="select" id="inp-branch">
+          <option value="">-- Chọn chi nhánh --</option>
+          <option>PHUCTEA003 - TÔN ĐỨC THẮNG CAO LÃNH</option>
+          <option>PHUCTEA004 - THÍCH QUẢNG ĐỨC LONG KHÁNH</option>
+          <option>PHUCTEA006 - PHAN RANG</option>
+          <option>PHUCTEA007 - TÔN ĐỨC THẮNG LONG THÀNH</option>
+          <option>PHUCTEA009 - TRẢNG BOM</option>
+          <option>PHUCTEA017 - ĐỊNH QUÁN</option>
+          <option>PHUCTEA023 - TRẢNG DÀI</option>
+          <option>PHUCTEA034 - NGUYỄN AN NINH DĨ AN</option>
+          <option>PHUCTEA044 - AN NHƠN</option>
+          <option>PHUCTEA045 - PHÚ TÀI</option>
+          <option>PHUCTEA052 - UYÊN HƯNG</option>
+          <option>PHUCTEA056 - BÌNH TÂN VĨNH LONG</option>
+          <option>PHUCTEA059 - MỸ PHƯỚC BẾN CÁT</option>
+          <option>PHUCTEA062 - BẾN LỨC</option>
+          <option>PHUCTEA068 - HÀ LAM</option>
+          <option>PHUCTEA076 - TRỊ AN</option>
+          <option>PHUCTEA079 - TRÀ ÔN</option>
+          <option>PHUCTEA085 - HÙNG VƯƠNG 2 XUÂN LỘC</option>
+          <option>PHUCTEA091 - BÌNH CHÂU</option>
+          <option>PHUCTEA094 - NINH PHƯỚC</option>
+          <option>PHUCTEA090 - VĨNH THẠNH</option>
+          <option>PHUCTEA095 - CÁI TẮC</option>
+          <option>PHUCTEA103 - NGÃ BẢY</option>
+          <option>PHUCTEA099 - BÌNH MINH</option>
+          <option>PHUCTEA101 - VĨNH AN</option>
+          <option>PHUCTEA107 - MỸ PHƯỚC 2 BẾN CÁT</option>
+          <option>PHUCTEA108 - Ô MÔN</option>
+          <option>PHUCTEA111 - BÀU BÀNG</option>
+          <option>PHUCTEACENTER001 - CẦN THƠ</option>
+          <option>PHUCTEA114 - MỸ PHƯỚC 3 BẾN CÁT</option>
+          <option>PHUCTEA116 - AN TÂY</option>
+          <option>PHUCTEA120 - CHƠN THÀNH</option>
+          <option>PHUCTEA128 - GÒ CÔNG TÂY</option>
+          <option>PHUCTEA134 - AN THỚI PHÚ QUỐC</option>
+          <option>PHUCTEA135 - VÕ NGUYÊN GIÁP TRÀ VINH</option>
+          <option>PHUCTEA137 - VĨNH TÂN</option>
+          <option>PHUCTEA138 - TRẦN HOÀNG NA CẦN THƠ</option>
+          <option>PHUCTEA139 - HÒA LẠC HÀ NỘI</option>
+          <option>PHUCTEA140 - NGUYỄN VĂN KHỐI GÒ VẤP</option>
+          <option>PHUCTEA143 - THỚI HÒA BẾN CÁT</option>
+          <option>PHUCTEA147 - PHÚ LỢI THỦ DẦU MỘT</option>
+          <option>PHUCTEA148 - LÊ LỢI LAI VUNG</option>
+          <option>PHUCTEA149 - HÙNG VƯƠNG ĐỒNG XOÀI</option>
+          <option>PHUCTEA150 - CHỬ ĐỒNG TỬ TÂN BÌNH</option>
+          <option>PHUCTEA151 - BÌNH SƠN LONG THÀNH</option>
+          <option>PHUCTEA152 - VÕ OANH BÌNH THẠNH</option>
+          <option>PHUCTEA153 - HỒ THỊ THƯỞNG THỚI LAI</option>
+          <option>PHUCTEA155 - PHÚ CHÁNH</option>
+          <option>PHUCTEA156 - ĐINH ĐỨC THIỆN BÌNH CHÁNH</option>
+          <option>PHUCTEA157 - ĐOÀN THỊ ĐIỂM XUÂN LỘC</option>
+          <option>PHUCTEA158 - ĐỨC HÒA TÂY NINH</option>
+          <option>PHUCTEA159 - TÂN PHƯỚC KHÁNH</option>
+          <option>PHUCTEA160 - CẦU TRÀM</option>
+          <option>PHUCTEA161 - ĐỖ XUÂN HỢP</option>
+          <option>PHUCTEA162 - THẠNH PHÚ VĨNH CỬU</option>
+          <option>PHUCTEA163 - HÒA THÀNH TÂY NINH</option>
+          <option>PHUCTEA164 - NGUYỄN VĂN LINH BÀ RỊA</option>
+        </select>
+        <div class="select-arrow">▾</div>
+      </div>
+      <div class="err-msg" id="err-branch">Vui lòng chọn chi nhánh</div>
+    </div>
+
+    <button class="btn btn-primary" onclick="startQuiz()">Bắt đầu kiểm tra →</button>
+  </div>
+</div>
+</div>
+
+<!-- PAGE 2: QUIZ -->
+<div class="page" id="page-quiz">
+<div class="container">
+  <div class="brand">
+    <div class="brand-logo">
+      <img src="logo1.png" alt="Phúc Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <span class="brand-logo-fallback" style="display:none">🍵</span>
+    </div>
+    <div class="brand-info">
+      <div class="brand-name">Phúc Tea</div>
+      <div class="brand-sub" id="quiz-branch-label">Chi nhánh</div>
+    </div>
+  </div>
+
+  <div id="quiz-body"></div>
+</div>
+</div>
+
+<!-- PAGE 3: RESULT -->
+<div class="page" id="page-result">
+<div class="container">
+  <div class="brand">
+    <div class="brand-logo">
+      <img src="logo1.png" alt="Phúc Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <span class="brand-logo-fallback" style="display:none">🍵</span>
+    </div>
+    <div class="brand-info">
+      <div class="brand-name">Phúc Tea</div>
+      <div class="brand-sub">Kết quả kiểm tra</div>
+    </div>
+  </div>
+  <div id="result-body"></div>
+</div>
+</div>
+
+<script>
+// ─── CẤU HÌNH ───────────────────────────────────────────
+const SHEET_WEBHOOK = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+// ────────────────────────────────────────────────────────
+
+const QUESTIONS = [
+  {id:1,sec:'bep',q:'Nhân sự bếp có đeo khẩu trang trong suốt ca làm việc không?'},
+  {id:2,sec:'bep',q:'Nhân sự bếp có đội mũ/lưới tóc khi chế biến không?'},
+  {id:3,sec:'bep',q:'Dụng cụ chế biến thực phẩm tươi sống và đã qua chế biến có để riêng biệt không?'},
+  {id:4,sec:'bep',q:'Quy trình 1 chiều (Tiếp nhận → Sơ chế → Chế biến → Chia suất) có được tuân thủ không?'},
+  {id:5,sec:'bep',q:'Khu vực bếp có được vệ sinh sạch sẽ theo tiêu chuẩn 5S không?'},
+  {id:6,sec:'pha',q:'Nhân viên pha chế có đeo khẩu trang và buộc tóc/đội mũ không?'},
+  {id:7,sec:'pha',q:'Nhân viên có cắt móng tay ngắn và không đeo trang sức khi làm việc không?'},
+  {id:8,sec:'pha',q:'Dụng cụ pha chế (shaker, ly, muỗng…) có được vệ sinh đúng quy trình sau mỗi ca không?'},
+  {id:9,sec:'pha',q:'Khu vực quầy pha chế có gọn sạch, nguyên liệu sắp xếp đúng vị trí không?'},
+  {id:10,sec:'kho',q:'Hàng hóa trong kho có được sắp xếp theo nguyên tắc FIFO (hàng vào trước lấy ra trước) không?'},
+  {id:11,sec:'kho',q:'Hàng hóa có được kê cách sàn ≥20cm, cách tường ≥50cm không?'},
+  {id:12,sec:'kho',q:'Tủ mát có duy trì nhiệt độ 2–5°C và được theo dõi mỗi 1 giờ không?'},
+  {id:13,sec:'kho',q:'Tất cả nguyên liệu sau khi khui bao bì có được dán tem DUE (D/U/E) đầy đủ không?'},
+  {id:14,sec:'con',q:'Nhân viên có rửa tay đúng quy trình trước khi tiếp xúc thực phẩm không?'},
+  {id:15,sec:'con',q:'Cơ sở có checklist kiểm tra vệ sinh đầu ca và thực hiện thường xuyên không?'},
+];
+
+const SECTIONS = {
+  bep:{label:'🍳 Khu vực bếp',badge:'badge-bep'},
+  pha:{label:'🧋 Khu vực pha chế',badge:'badge-pha'},
+  kho:{label:'📦 Kho & Bảo quản',badge:'badge-kho'},
+  con:{label:'👤 Con người & VS cá nhân',badge:'badge-con'},
+};
+
+const OPTS = ['Có ✅','Có nhưng chưa đều ⚠️','Chưa ❌','Chưa kiểm soát 🔍'];
+const SCORE = {'Có ✅':2,'Có nhưng chưa đều ⚠️':1,'Chưa ❌':0,'Chưa kiểm soát 🔍':0};
+const CLS   = {'Có ✅':'yes','Có nhưng chưa đều ⚠️':'partial','Chưa ❌':'no','Chưa kiểm soát 🔍':'unknown'};
+
+// Quick actions mapping per section
+const QUICK_ACTIONS = {
+  bep:[
+    'Nhắc nhở toàn bộ nhân sự bếp đeo khẩu trang và đội mũ ngay từ đầu ca, không chờ bị nhắc.',
+    'Kiểm tra và phân tách dụng cụ chế biến tươi sống / đã chín — dán nhãn màu để phân biệt.',
+    'Dán sơ đồ quy trình 1 chiều tại khu vực bếp để nhân viên đối chiếu hằng ngày.',
+    'Thực hiện 5S bếp ngay hôm nay: Sàng lọc, Sắp xếp, Sạch sẽ, Săn sóc, Sẵn sàng.',
+  ],
+  pha:[
+    'Kiểm tra trang phục pha chế toàn bộ nhân viên ngay đầu ca: khẩu trang, tóc buộc/mũ, không trang sức.',
+    'Vệ sinh toàn bộ dụng cụ pha chế (shaker, ly, muỗng) theo đúng quy trình — kiểm tra ngay.',
+    'Sắp xếp lại quầy pha chế theo đúng vị trí quy định, dán nhãn vị trí từng loại nguyên liệu.',
+  ],
+  kho:[
+    'Kiểm tra toàn bộ kho — sắp xếp lại theo FIFO, hàng cũ ra trước, hàng mới vào sau.',
+    'Đo khoảng cách kệ với sàn (≥20cm) và tường (≥50cm) — điều chỉnh ngay nếu chưa đạt.',
+    'Kiểm tra nhiệt độ tủ mát ngay lúc này và thiết lập lịch theo dõi mỗi 1 giờ trong ca.',
+    'Dán tem DUE lên tất cả nguyên liệu đã khui bao bì: ghi rõ D (HSD gốc) / U (ngày mở) / E (hết hạn cửa hàng).',
+  ],
+  con:[
+    'Hướng dẫn lại quy trình rửa tay 6 bước cho toàn bộ nhân viên — thực hành ngay tại chỗ.',
+    'In và dán checklist vệ sinh đầu ca tại khu vực bếp và pha chế để nhân viên tự kiểm tra.',
+  ],
+};
+
+// Documents to send based on failed sections
+const DOCS_MAP = {
+  bep:'Module 02 – Vệ sinh ATTP (Tiêu chuẩn khu vực bếp)',
+  pha:'Module 02 – Vệ sinh ATTP (Tiêu chuẩn khu vực pha chế)',
+  kho:'Module 07 – Kiểm soát chất lượng sản phẩm (Bảo quản kho & tủ mát)',
+  con:'Module 02 – Vệ sinh ATTP (Vệ sinh cá nhân & thực hành bàn tay tốt)',
+};
+
+let cur = 0;
+let answers = {};
+let openAnswers = { oa1: '', oa2: '' };
+let surveyor = '', branch = '';
+let submitStatus = null;
+const TOTAL_STEPS = 17; // 15 câu + 2 tự luận
+
+// ─── NAVIGATION ─────────────────────────────────────────
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+// ─── INTRO ──────────────────────────────────────────────
+function startQuiz(){
+  const sEl = document.getElementById('inp-surveyor');
+  const bEl = document.getElementById('inp-branch');
+  const errS = document.getElementById('err-surveyor');
+  const errB = document.getElementById('err-branch');
+  let ok = true;
+  if(!sEl.value.trim()){sEl.classList.add('error');errS.classList.add('show');ok=false;}
+  else{sEl.classList.remove('error');errS.classList.remove('show');}
+  if(!bEl.value){bEl.classList.add('error');errB.classList.add('show');ok=false;}
+  else{bEl.classList.remove('error');errB.classList.remove('show');}
+  if(!ok) return;
+  surveyor = sEl.value.trim();
+  branch   = bEl.value;
+  cur = 0; answers = {}; openAnswers = {oa1:'',oa2:''}; submitStatus = null;
+  document.getElementById('quiz-branch-label').textContent = branch.split(' - ')[0];
+  showPage('page-quiz');
+  renderQuiz();
+}
+
+// ─── QUIZ ────────────────────────────────────────────────
+function renderQuiz(){
+  // cur 0–14 = trắc nghiệm, cur 15–16 = tự luận
+  if(cur < QUESTIONS.length){
+    renderMCQ();
+  } else {
+    renderOpen(cur - QUESTIONS.length); // 0 hoặc 1
+  }
+}
+
+function renderMCQ(){
+  const q   = QUESTIONS[cur];
+  const sec = SECTIONS[q.sec];
+  const pct = Math.round((cur/TOTAL_STEPS)*100);
+  const secChange = cur===0 || QUESTIONS[cur-1].sec !== q.sec;
+
+  document.getElementById('quiz-body').innerHTML = `
+    <div class="prog-wrap">
+      <div class="prog-top">
+        <span class="prog-sec">${sec.label}</span>
+        <span class="prog-count">${cur+1} / ${TOTAL_STEPS}</span>
+      </div>
+      <div class="prog-bar"><div class="prog-fill" style="width:${pct}%"></div></div>
+    </div>
+
+    <div class="card">
+      ${secChange?`<div class="sec-badge ${sec.badge}">${sec.label}</div>`:''}
+      <div class="q-text">${q.q}</div>
+      <div class="opts">
+        ${OPTS.map(o=>`
+          <button class="opt ${answers[q.id]===o?CLS[o]:''}" onclick="pick('${o.replace(/'/g,"\\'")}')">
+            <div class="opt-dot"></div><span>${o}</span>
+          </button>`).join('')}
+      </div>
+    </div>
+
+    <div class="nav">
+      ${cur>0?`<button class="btn-back" onclick="goBack()">←</button>`:''}
+      <button class="btn btn-primary" id="btn-next" onclick="goNext()" ${answers[q.id]?'':'disabled'}>
+        Tiếp theo →
+      </button>
+    </div>
+  `;
+}
+
+const OPEN_QS = [
+  { key:'oa1', label:'💬 Chia sẻ thêm', q:'Anh/chị đang gặp khó khăn gì trong việc duy trì vệ sinh ATTP tại cửa hàng?' },
+  { key:'oa2', label:'💡 Góp ý', q:'Anh/chị có đề xuất hoặc ý kiến gì để Bộ phận Operations và Hệ thống Phúc Tea hỗ trợ tốt hơn không?' },
+];
+
+function renderOpen(idx){
+  const oq  = OPEN_QS[idx];
+  const pct = Math.round(((QUESTIONS.length + idx)/TOTAL_STEPS)*100);
+  const val = openAnswers[oq.key];
+
+  document.getElementById('quiz-body').innerHTML = `
+    <div class="prog-wrap">
+      <div class="prog-top">
+        <span class="prog-sec">${oq.label}</span>
+        <span class="prog-count">${QUESTIONS.length+idx+1} / ${TOTAL_STEPS}</span>
+      </div>
+      <div class="prog-bar"><div class="prog-fill" style="width:${pct}%"></div></div>
+    </div>
+
+    <div class="card">
+      <div class="sec-badge" style="background:#F0FDF4;color:#166534;border:1px solid #86EFAC">✍️ Câu hỏi mở</div>
+      <div class="q-text">${oq.q}</div>
+      <textarea
+        id="open-textarea"
+        placeholder="Nhập ý kiến của anh/chị tại đây... (không bắt buộc)"
+        style="width:100%;min-height:120px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-family:inherit;color:var(--text);resize:vertical;outline:none;transition:border .2s;line-height:1.6;"
+        onfocus="this.style.borderColor='var(--orange)'"
+        onblur="this.style.borderColor='var(--border)'"
+        oninput="openAnswers['${oq.key}']=this.value"
+      >${val}</textarea>
+      <div style="font-size:12px;color:var(--text-3);margin-top:6px;">Câu hỏi này không bắt buộc — bỏ qua nếu không có ý kiến.</div>
+    </div>
+
+    <div class="nav">
+      <button class="btn-back" onclick="goBack()">←</button>
+      <button class="btn btn-primary" onclick="goNext()">
+        ${idx < OPEN_QS.length-1 ? 'Tiếp theo →' : 'Xem kết quả →'}
+      </button>
+    </div>
+  `;
+  // restore saved value
+  const ta = document.getElementById('open-textarea');
+  if(ta) ta.value = val;
+}
+
+function pick(opt){
+  answers[QUESTIONS[cur].id] = opt;
+  renderQuiz();
+}
+
+function goBack(){
+  if(cur>0){cur--;renderQuiz();}
+}
+
+function goNext(){
+  if(cur < QUESTIONS.length){
+    if(!answers[QUESTIONS[cur].id]) return;
+    cur++; renderQuiz();
+  } else {
+    // save open textarea value before moving
+    const ta = document.getElementById('open-textarea');
+    const idx = cur - QUESTIONS.length;
+    if(ta) openAnswers[OPEN_QS[idx].key] = ta.value;
+    if(cur < QUESTIONS.length + OPEN_QS.length - 1){
+      cur++; renderQuiz();
+    } else {
+      showPage('page-result'); renderResult();
+    }
+  }
+}
+
+// ─── SCORING ────────────────────────────────────────────
+function calcTotal(){
+  let t=0,m=QUESTIONS.length*2;
+  QUESTIONS.forEach(q=>{t+=SCORE[answers[q.id]]||0;});
+  return{t,m,pct:Math.round((t/m)*100)};
+}
+function calcSec(){
+  const r={};
+  Object.keys(SECTIONS).forEach(s=>{
+    const qs=QUESTIONS.filter(q=>q.sec===s);
+    let t=0,m=qs.length*2;
+    qs.forEach(q=>{t+=SCORE[answers[q.id]]||0;});
+    r[s]=Math.round((t/m)*100);
+  });
+  return r;
+}
+function getIssues(){
+  return QUESTIONS.filter(q=>answers[q.id]==='Chưa ❌'||answers[q.id]==='Chưa kiểm soát 🔍'||answers[q.id]==='Có nhưng chưa đều ⚠️');
+}
+function failedSections(){
+  const sec=calcSec();
+  return Object.keys(sec).filter(s=>sec[s]<100);
+}
+function fillColor(p){return p>=80?'#66BB6A':p>=50?'#FFCA28':'#EF9A9A';}
+
+// ─── QUICK ACTIONS ──────────────────────────────────────
+function buildQuickActions(){
+  const issues = getIssues();
+  if(issues.length===0) return '<p style="font-size:14px;color:var(--text-2)">🎉 Không có hành động nào cần xử lý ngay. Duy trì tốt nhé!</p>';
+  // collect unique sections from issues
+  const secsNeeded = [...new Set(issues.map(q=>q.sec))];
+  let actions = [];
+  secsNeeded.forEach(s=>{
+    // find which specific questions failed in this section
+    const failedQs = issues.filter(q=>q.sec===s);
+    failedQs.forEach((q,i)=>{
+      if(QUICK_ACTIONS[s] && QUICK_ACTIONS[s][i]) actions.push(QUICK_ACTIONS[s][i]);
+    });
+  });
+  // deduplicate & limit to 6
+  actions = [...new Set(actions)].slice(0,6);
+  return actions.map((a,i)=>`
+    <div class="qa-item">
+      <div class="qa-num">${i+1}</div>
+      <div class="qa-text">${a}</div>
+    </div>`).join('');
+}
+
+// ─── DOCS TO SEND ───────────────────────────────────────
+function buildDocsList(){
+  const fs = failedSections();
+  if(fs.length===0) return '<p style="font-size:13px;color:var(--text-2)">Không có tài liệu cần bổ sung.</p>';
+  return fs.map(s=>`
+    <div class="doc-item">
+      <div class="doc-icon">📄</div>
+      <div>${DOCS_MAP[s]}</div>
+    </div>`).join('');
+}
+
+function docsString(){
+  const fs=failedSections();
+  if(fs.length===0) return 'Không cần gửi thêm tài liệu';
+  return fs.map(s=>DOCS_MAP[s]).join(' | ');
+}
+
+// ─── RESULT ─────────────────────────────────────────────
+function renderResult(){
+  const {t,m,pct} = calcTotal();
+  const sec = calcSec();
+  const issues = getIssues();
+  let ring='ring-bad',title='Cần khắc phục gấp ⚠️',sub='Nhiều tiêu chuẩn chưa tuân thủ. Xem hành động nhanh bên dưới và liên hệ Operations để được hỗ trợ.';
+  if(pct>=80){ring='ring-great';title='Xuất sắc! 🎉';sub='Chi nhánh đang tuân thủ tốt các tiêu chuẩn ATTP. Duy trì và cải thiện tiếp nhé!';}
+  else if(pct>=50){ring='ring-ok';title='Cần cải thiện ⚠️';sub='Một số hạng mục chưa đạt chuẩn. Ưu tiên xử lý ngay các điểm bên dưới.';}
+
+  document.getElementById('result-body').innerHTML = `
+    <!-- SCORE -->
+    <div class="card card-accent">
+      <div class="score-hero">
+        <div class="score-ring ${ring}">
+          <div class="score-pct">${pct}%</div>
+          <div class="score-pts">${t}/${m} điểm</div>
+        </div>
+        <div class="r-title">${title}</div>
+        <div class="r-sub">${sub}</div>
+      </div>
+      <div style="font-size:13px;color:var(--text-2);text-align:center;padding-bottom:4px">
+        📍 <strong style="color:var(--text)">${branch}</strong><br>
+        👤 Khảo sát bởi: <strong style="color:var(--text)">${surveyor}</strong>
+      </div>
+      <div class="divider"></div>
+      <div class="ss-title">Kết quả theo khu vực</div>
+      ${Object.keys(SECTIONS).map(s=>`
+        <div class="ss-row">
+          <span class="ss-label">${SECTIONS[s].label}</span>
+          <div class="ss-bar"><div class="ss-fill" style="width:${sec[s]}%;background:${fillColor(sec[s])}"></div></div>
+          <span class="ss-pct" style="color:${fillColor(sec[s])}">${sec[s]}%</span>
+        </div>`).join('')}
+    </div>
+
+    <!-- ISSUES -->
+    ${issues.length>0?`
+    <div class="card">
+      <div class="ss-title">⚠️ Hạng mục chưa đạt (${issues.length})</div>
+      ${issues.map(q=>{
+        const isDot=(answers[q.id]==='Chưa ❌'||answers[q.id]==='Chưa kiểm soát 🔍')?'dot-red':'dot-yellow';
+        const chip=(answers[q.id]==='Chưa ❌'||answers[q.id]==='Chưa kiểm soát 🔍')
+          ?`<span class="chip chip-red">${answers[q.id]}</span>`
+          :`<span class="chip chip-yellow">${answers[q.id]}</span>`;
+        return `<div class="issue-item"><div class="i-dot ${isDot}"></div><span>${q.q}${chip}</span></div>`;
+      }).join('')}
+    </div>`:''}
+
+    <!-- QUICK ACTIONS -->
+    <div class="card">
+      <div class="ss-title">⚡ Hành động cần làm ngay hôm nay</div>
+      <div class="qa-wrap">${buildQuickActions()}</div>
+    </div>
+
+    <!-- DOCS TO SEND -->
+    <div class="card">
+      <div class="ss-title">📚 Tài liệu Operations sẽ gửi cho chi nhánh</div>
+      <div style="font-size:13px;color:var(--text-2);margin-bottom:12px;line-height:1.6">
+        Dựa trên kết quả kiểm tra, bộ phận Operations sẽ gửi các tài liệu sau qua Zalo/email:
+      </div>
+      ${buildDocsList()}
+    </div>
+
+    <!-- OPS NOTE -->
+    <div class="ops-note">
+      <div class="ops-note-title">📬 Tài liệu sẽ được gửi cho chi nhánh</div>
+      <div class="ops-note-text">Bộ phận Operations sẽ gửi các tài liệu phù hợp cho anh/chị qua <strong>Zalo hoặc Email</strong> trong thời gian sớm nhất. Vui lòng để ý tin nhắn!</div>
+    </div>
+
+    <!-- OPEN ANSWERS SUMMARY -->
+    ${(openAnswers.oa1||openAnswers.oa2)?`
+    <div class="card">
+      <div class="ss-title">✍️ Ý kiến của anh/chị</div>
+      ${openAnswers.oa1?`
+        <div style="margin-bottom:12px;">
+          <div style="font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:4px;">Khó khăn đang gặp phải</div>
+          <div style="font-size:14px;color:var(--text);line-height:1.7;background:var(--bg);padding:12px;border-radius:var(--radius-sm);">${openAnswers.oa1}</div>
+        </div>`:''}
+      ${openAnswers.oa2?`
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:4px;">Đề xuất & góp ý</div>
+          <div style="font-size:14px;color:var(--text);line-height:1.7;background:var(--bg);padding:12px;border-radius:var(--radius-sm);">${openAnswers.oa2}</div>
+        </div>`:''}
+    </div>`:''}
+
+    <!-- CONTACT -->
+    <div class="contact-card">
+      <div class="contact-title">💬 Có thắc mắc? Liên hệ ngay</div>
+      <div class="contact-info">
+        <strong>Dương Thanh Liêm</strong> – Operations Manager<br>
+        📞 0357 636 539
+      </div>
+      <a class="btn-zalo" href="https://zalo.me/0357636539" target="_blank">
+        <img src="logo2.png" alt="Zalo" width="22" height="22" style="border-radius:4px;object-fit:contain;" onerror="this.style.display='none'">
+        Nhắn Zalo ngay
+      </a>
+    </div>
+
+    <!-- RESTART -->
+    <button class="btn btn-primary" onclick="restart()" style="margin-bottom:8px">🔄 Kiểm tra chi nhánh khác</button>
+    <div class="footer-note">Phúc Tea – Hệ thống kiểm tra ATTP nội bộ<br>${new Date().toLocaleString('vi-VN')}</div>
+  `;
+}
+
+function restart(){
+  showPage('page-intro');
+  openAnswers = {oa1:'',oa2:''};
+  document.getElementById('inp-surveyor').value='';
+  document.getElementById('inp-branch').value='';
+}
+</script>
+</body>
+</html>
