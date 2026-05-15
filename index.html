@@ -278,7 +278,7 @@ function renderDropdownItems(list) {
     dd.innerHTML = `<div style="padding:10px 14px;font-size:13px;color:var(--text-3);">Không tìm thấy — tên bạn nhập sẽ được lưu</div>`;
   } else {
     dd.innerHTML = list.map(b => `
-      <div onclick="selectBranch('${b.replace(/'/g,"\\'")}')"
+      <div onmousedown="event.preventDefault();selectBranch('${b.replace(/'/g,"\\'")}')"
         style="padding:10px 14px;font-size:14px;cursor:pointer;border-bottom:1px solid var(--border);transition:background .1s;"
         onmouseover="this.style.background='var(--orange-bg)'"
         onmouseout="this.style.background=''">${b}</div>
@@ -310,10 +310,12 @@ function filterBranch(val) {
 }
 
 function selectBranch(val) {
-  document.getElementById('inp-branch').value = val;
+  const inp = document.getElementById('inp-branch');
+  inp.value = val;
   const dd = document.getElementById('branch-dropdown');
   if (dd) dd.style.display = 'none';
   dropdownVisible = false;
+  if (hideTimer) clearTimeout(hideTimer);
 }
 
 // ─── CẤU HÌNH ───────────────────────────────────────────
@@ -689,7 +691,7 @@ function renderResult(){
         📞 0357 636 539
       </div>
       <a class="btn-zalo" href="https://zalo.me/0357636539" target="_blank">
-        <img src="logo3.png" alt="Zalo" width="22" height="22" style="border-radius:4px;object-fit:contain;" onerror="this.style.display='none'">
+        <img src="logo2.png" alt="Zalo" width="22" height="22" style="border-radius:4px;object-fit:contain;" onerror="this.style.display='none'">
         Nhắn Zalo ngay
       </a>
     </div>
