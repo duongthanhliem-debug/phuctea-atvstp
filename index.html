@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="vi">
-<link rel="icon" type="image/png" href="logo4.png">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Phúc Tea – Kiểm tra ATTP</title>
-<link rel="icon" type="image/png" href="logo3.png?v=2">
-<link rel="apple-touch-icon" href="logo3.png?v=2">
-<link rel="shortcut icon" href="logo3.png?v=2">
+<link rel="icon" type="image/png" href="logo4.png?v=2">
+<link rel="apple-touch-icon" href="logo4.png?v=2">
+<link rel="shortcut icon" href="logo4.png?v=2">
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -165,7 +165,7 @@ body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--te
 <div class="container">
   <div class="brand">
     <div class="brand-logo">
-      <img src="logo3.png" alt="Phúc Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <img src="logo4.png" alt="Phúc Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
       <span class="brand-logo-fallback" style="display:none">🍵</span>
     </div>
     <div class="brand-info">
@@ -185,76 +185,19 @@ body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--te
 
     <div class="field">
       <label class="label">Tên người khảo sát <span>*</span></label>
-      <input class="input" id="inp-surveyor" type="text" placeholder="Họ và tên của anh/chị">
+      <input class="input" id="inp-surveyor" type="text" placeholder="Họ và tên của bạn">
       <div class="err-msg" id="err-surveyor">Vui lòng nhập tên người khảo sát</div>
     </div>
 
     <div class="field">
       <label class="label">Tên cửa hàng <span>*</span></label>
-      <div class="select-wrap">
-        <select class="select" id="inp-branch">
-          <option value="">-- Chọn chi nhánh --</option>
-          <option>PHUCTEA003 - TÔN ĐỨC THẮNG CAO LÃNH</option>
-          <option>PHUCTEA004 - THÍCH QUẢNG ĐỨC LONG KHÁNH</option>
-          <option>PHUCTEA006 - PHAN RANG</option>
-          <option>PHUCTEA007 - TÔN ĐỨC THẮNG LONG THÀNH</option>
-          <option>PHUCTEA009 - TRẢNG BOM</option>
-          <option>PHUCTEA017 - ĐỊNH QUÁN</option>
-          <option>PHUCTEA023 - TRẢNG DÀI</option>
-          <option>PHUCTEA034 - NGUYỄN AN NINH DĨ AN</option>
-          <option>PHUCTEA044 - AN NHƠN</option>
-          <option>PHUCTEA045 - PHÚ TÀI</option>
-          <option>PHUCTEA052 - UYÊN HƯNG</option>
-          <option>PHUCTEA056 - BÌNH TÂN VĨNH LONG</option>
-          <option>PHUCTEA059 - MỸ PHƯỚC BẾN CÁT</option>
-          <option>PHUCTEA062 - BẾN LỨC</option>
-          <option>PHUCTEA068 - HÀ LAM</option>
-          <option>PHUCTEA076 - TRỊ AN</option>
-          <option>PHUCTEA079 - TRÀ ÔN</option>
-          <option>PHUCTEA085 - HÙNG VƯƠNG 2 XUÂN LỘC</option>
-          <option>PHUCTEA091 - BÌNH CHÂU</option>
-          <option>PHUCTEA094 - NINH PHƯỚC</option>
-          <option>PHUCTEA090 - VĨNH THẠNH</option>
-          <option>PHUCTEA095 - CÁI TẮC</option>
-          <option>PHUCTEA103 - NGÃ BẢY</option>
-          <option>PHUCTEA099 - BÌNH MINH</option>
-          <option>PHUCTEA101 - VĨNH AN</option>
-          <option>PHUCTEA107 - MỸ PHƯỚC 2 BẾN CÁT</option>
-          <option>PHUCTEA108 - Ô MÔN</option>
-          <option>PHUCTEA111 - BÀU BÀNG</option>
-          <option>PHUCTEACENTER001 - CẦN THƠ</option>
-          <option>PHUCTEA114 - MỸ PHƯỚC 3 BẾN CÁT</option>
-          <option>PHUCTEA116 - AN TÂY</option>
-          <option>PHUCTEA120 - CHƠN THÀNH</option>
-          <option>PHUCTEA128 - GÒ CÔNG TÂY</option>
-          <option>PHUCTEA134 - AN THỚI PHÚ QUỐC</option>
-          <option>PHUCTEA135 - VÕ NGUYÊN GIÁP TRÀ VINH</option>
-          <option>PHUCTEA137 - VĨNH TÂN</option>
-          <option>PHUCTEA138 - TRẦN HOÀNG NA CẦN THƠ</option>
-          <option>PHUCTEA139 - HÒA LẠC HÀ NỘI</option>
-          <option>PHUCTEA140 - NGUYỄN VĂN KHỐI GÒ VẤP</option>
-          <option>PHUCTEA143 - THỚI HÒA BẾN CÁT</option>
-          <option>PHUCTEA147 - PHÚ LỢI THỦ DẦU MỘT</option>
-          <option>PHUCTEA148 - LÊ LỢI LAI VUNG</option>
-          <option>PHUCTEA149 - HÙNG VƯƠNG ĐỒNG XOÀI</option>
-          <option>PHUCTEA150 - CHỬ ĐỒNG TỬ TÂN BÌNH</option>
-          <option>PHUCTEA151 - BÌNH SƠN LONG THÀNH</option>
-          <option>PHUCTEA152 - VÕ OANH BÌNH THẠNH</option>
-          <option>PHUCTEA153 - HỒ THỊ THƯỞNG THỚI LAI</option>
-          <option>PHUCTEA155 - PHÚ CHÁNH</option>
-          <option>PHUCTEA156 - ĐINH ĐỨC THIỆN BÌNH CHÁNH</option>
-          <option>PHUCTEA157 - ĐOÀN THỊ ĐIỂM XUÂN LỘC</option>
-          <option>PHUCTEA158 - ĐỨC HÒA TÂY NINH</option>
-          <option>PHUCTEA159 - TÂN PHƯỚC KHÁNH</option>
-          <option>PHUCTEA160 - CẦU TRÀM</option>
-          <option>PHUCTEA161 - ĐỖ XUÂN HỢP</option>
-          <option>PHUCTEA162 - THẠNH PHÚ VĨNH CỬU</option>
-          <option>PHUCTEA163 - HÒA THÀNH TÂY NINH</option>
-          <option>PHUCTEA164 - NGUYỄN VĂN LINH BÀ RỊA</option>
-        </select>
-        <div class="select-arrow">▾</div>
+      <div style="position:relative;">
+        <input class="input" id="inp-branch" type="text" placeholder="Tìm hoặc nhập tên chi nhánh..." autocomplete="off"
+          oninput="filterBranch(this.value)" onfocus="showDropdown()" onblur="hideDropdown()">
+        <div id="branch-dropdown" style="display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:1.5px solid var(--orange);border-top:none;border-radius:0 0 var(--radius-sm) var(--radius-sm);max-height:220px;overflow-y:auto;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,0.1);"></div>
       </div>
-      <div class="err-msg" id="err-branch">Vui lòng chọn chi nhánh</div>
+      <div style="font-size:12px;color:var(--text-3);margin-top:4px;">Gõ để tìm nhanh. Nếu chưa có trong danh sách, nhập tên mới.</div>
+      <div class="err-msg" id="err-branch">Vui lòng chọn hoặc nhập tên chi nhánh</div>
     </div>
 
     <button class="btn btn-primary" onclick="startQuiz()">Bắt đầu kiểm tra →</button>
@@ -267,7 +210,7 @@ body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--te
 <div class="container">
   <div class="brand">
     <div class="brand-logo">
-      <img src="logo3.png" alt="Phúc Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <img src="logo4.png" alt="Phúc Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
       <span class="brand-logo-fallback" style="display:none">🍵</span>
     </div>
     <div class="brand-info">
@@ -285,7 +228,7 @@ body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--te
 <div class="container">
   <div class="brand">
     <div class="brand-logo">
-      <img src="logo3.png" alt="Phúc Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <img src="logo4.png" alt="Phúc Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
       <span class="brand-logo-fallback" style="display:none">🍵</span>
     </div>
     <div class="brand-info">
@@ -298,8 +241,83 @@ body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--te
 </div>
 
 <script>
+// ─── DANH SÁCH CHI NHÁNH ────────────────────────────────
+const BRANCHES = [
+  'PHUCTEA003 - TÔN ĐỨC THẮNG CAO LÃNH','PHUCTEA004 - THÍCH QUẢNG ĐỨC LONG KHÁNH',
+  'PHUCTEA006 - PHAN RANG','PHUCTEA007 - TÔN ĐỨC THẮNG LONG THÀNH',
+  'PHUCTEA009 - TRẢNG BOM','PHUCTEA017 - ĐỊNH QUÁN','PHUCTEA023 - TRẢNG DÀI',
+  'PHUCTEA034 - NGUYỄN AN NINH DĨ AN','PHUCTEA044 - AN NHƠN','PHUCTEA045 - PHÚ TÀI',
+  'PHUCTEA052 - UYÊN HƯNG','PHUCTEA056 - BÌNH TÂN VĨNH LONG','PHUCTEA059 - MỸ PHƯỚC BẾN CÁT',
+  'PHUCTEA062 - BẾN LỨC','PHUCTEA068 - HÀ LAM','PHUCTEA076 - TRỊ AN','PHUCTEA079 - TRÀ ÔN',
+  'PHUCTEA085 - HÙNG VƯƠNG 2 XUÂN LỘC','PHUCTEA091 - BÌNH CHÂU','PHUCTEA094 - NINH PHƯỚC',
+  'PHUCTEA090 - VĨNH THẠNH','PHUCTEA095 - CÁI TẮC','PHUCTEA103 - NGÃ BẢY',
+  'PHUCTEA099 - BÌNH MINH','PHUCTEA101 - VĨNH AN','PHUCTEA107 - MỸ PHƯỚC 2 BẾN CÁT',
+  'PHUCTEA108 - Ô MÔN','PHUCTEA111 - BÀU BÀNG','PHUCTEACENTER001 - CẦN THƠ',
+  'PHUCTEA114 - MỸ PHƯỚC 3 BẾN CÁT','PHUCTEA116 - AN TÂY','PHUCTEA120 - CHƠN THÀNH',
+  'PHUCTEA128 - GÒ CÔNG TÂY','PHUCTEA134 - AN THỚI PHÚ QUỐC','PHUCTEA135 - VÕ NGUYÊN GIÁP TRÀ VINH',
+  'PHUCTEA137 - VĨNH TÂN','PHUCTEA138 - TRẦN HOÀNG NA CẦN THƠ','PHUCTEA139 - HÒA LẠC HÀ NỘI',
+  'PHUCTEA140 - NGUYỄN VĂN KHỐI GÒ VẤP','PHUCTEA143 - THỚI HÒA BẾN CÁT',
+  'PHUCTEA147 - PHÚ LỢI THỦ DẦU MỘT','PHUCTEA148 - LÊ LỢI LAI VUNG',
+  'PHUCTEA149 - HÙNG VƯƠNG ĐỒNG XOÀI','PHUCTEA150 - CHỬ ĐỒNG TỬ TÂN BÌNH',
+  'PHUCTEA151 - BÌNH SƠN LONG THÀNH','PHUCTEA152 - VÕ OANH BÌNH THẠNH',
+  'PHUCTEA153 - HỒ THỊ THƯỞNG THỚI LAI','PHUCTEA155 - PHÚ CHÁNH',
+  'PHUCTEA156 - ĐINH ĐỨC THIỆN BÌNH CHÁNH','PHUCTEA157 - ĐOÀN THỊ ĐIỂM XUÂN LỘC',
+  'PHUCTEA158 - ĐỨC HÒA TÂY NINH','PHUCTEA159 - TÂN PHƯỚC KHÁNH','PHUCTEA160 - CẦU TRÀM',
+  'PHUCTEA161 - ĐỖ XUÂN HỢP','PHUCTEA162 - THẠNH PHÚ VĨNH CỬU',
+  'PHUCTEA163 - HÒA THÀNH TÂY NINH','PHUCTEA164 - NGUYỄN VĂN LINH BÀ RỊA',
+];
+
+// ─── COMBOBOX ────────────────────────────────────────────
+let dropdownVisible = false;
+let hideTimer = null;
+
+function renderDropdownItems(list) {
+  const dd = document.getElementById('branch-dropdown');
+  if (!dd) return;
+  if (list.length === 0) {
+    dd.innerHTML = `<div style="padding:10px 14px;font-size:13px;color:var(--text-3);">Không tìm thấy — tên bạn nhập sẽ được lưu</div>`;
+  } else {
+    dd.innerHTML = list.map(b => `
+      <div onclick="selectBranch('${b.replace(/'/g,"\\'")}')"
+        style="padding:10px 14px;font-size:14px;cursor:pointer;border-bottom:1px solid var(--border);transition:background .1s;"
+        onmouseover="this.style.background='var(--orange-bg)'"
+        onmouseout="this.style.background=''">${b}</div>
+    `).join('');
+  }
+  dd.style.display = 'block';
+  dropdownVisible = true;
+}
+
+function showDropdown() {
+  if (hideTimer) clearTimeout(hideTimer);
+  const val = document.getElementById('inp-branch').value;
+  const filtered = val ? BRANCHES.filter(b => b.toLowerCase().includes(val.toLowerCase())) : BRANCHES;
+  renderDropdownItems(filtered.slice(0, 20));
+}
+
+function hideDropdown() {
+  hideTimer = setTimeout(() => {
+    const dd = document.getElementById('branch-dropdown');
+    if (dd) dd.style.display = 'none';
+    dropdownVisible = false;
+  }, 200);
+}
+
+function filterBranch(val) {
+  if (hideTimer) clearTimeout(hideTimer);
+  const filtered = BRANCHES.filter(b => b.toLowerCase().includes(val.toLowerCase()));
+  renderDropdownItems(filtered.slice(0, 20));
+}
+
+function selectBranch(val) {
+  document.getElementById('inp-branch').value = val;
+  const dd = document.getElementById('branch-dropdown');
+  if (dd) dd.style.display = 'none';
+  dropdownVisible = false;
+}
+
 // ─── CẤU HÌNH ───────────────────────────────────────────
-const SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbw4MGX59Tl8Xi3MS5IfBjsaLXRs3IVvhAwfygZVW0OSycwtOCwonhE4T3zBcFwGFetGDA/exec';
+const SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbwAjgutIXkax51ZxaTW2B6yr3GR9jS3HlJBN-sV0FCwMQKu3kBpUOIWp3nlH-ZBdK7W_A/exec';
 // ────────────────────────────────────────────────────────
 
 const QUESTIONS = [
@@ -387,11 +405,11 @@ function startQuiz(){
   let ok = true;
   if(!sEl.value.trim()){sEl.classList.add('error');errS.classList.add('show');ok=false;}
   else{sEl.classList.remove('error');errS.classList.remove('show');}
-  if(!bEl.value){bEl.classList.add('error');errB.classList.add('show');ok=false;}
+  if(!bEl.value.trim()){bEl.classList.add('error');errB.classList.add('show');ok=false;}
   else{bEl.classList.remove('error');errB.classList.remove('show');}
   if(!ok) return;
   surveyor = sEl.value.trim();
-  branch   = bEl.value;
+  branch   = bEl.value.trim();
   cur = 0; answers = {}; openAnswers = {oa1:'',oa2:''}; submitStatus = null;
   document.getElementById('quiz-branch-label').textContent = branch.split(' - ')[0];
   showPage('page-quiz');
@@ -509,7 +527,7 @@ function goNext(){
     if(cur < QUESTIONS.length + OPEN_QS.length - 1){
       cur++; renderQuiz();
     } else {
-      showPage('page-result'); renderResult();
+      showPage('page-result'); renderResult(); submitToSheet();
     }
   }
 }
@@ -680,6 +698,44 @@ function renderResult(){
     <button class="btn btn-primary" onclick="restart()" style="margin-bottom:8px">🔄 Kiểm tra chi nhánh khác</button>
     <div class="footer-note">Phúc Tea – Hệ thống kiểm tra ATTP nội bộ<br>${new Date().toLocaleString('vi-VN')}</div>
   `;
+}
+
+// ─── GỬI KẾT QUẢ VỀ GOOGLE SHEET ───────────────────────
+async function submitToSheet(){
+  if(SHEET_WEBHOOK==='YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') return;
+  const {t,m,pct}=calcTotal();
+  const sec=calcSec();
+  const payload={
+    timestamp: new Date().toLocaleString('vi-VN'),
+    surveyor,
+    branch,
+    score_pct: pct+'%',
+    score_total: `${t}/${m}`,
+    score_bep: sec.bep+'%',
+    score_pha: sec.pha+'%',
+    score_kho: sec.kho+'%',
+    score_con: sec.con+'%',
+    docs_to_send: docsString(),
+    kenh_gui: '',
+    q1:answers[1]||'', q2:answers[2]||'', q3:answers[3]||'',
+    q4:answers[4]||'', q5:answers[5]||'', q6:answers[6]||'',
+    q7:answers[7]||'', q8:answers[8]||'', q9:answers[9]||'',
+    q10:answers[10]||'', q11:answers[11]||'', q12:answers[12]||'',
+    q13:answers[13]||'', q14:answers[14]||'', q15:answers[15]||'',
+    oa1: openAnswers.oa1||'',
+    oa2: openAnswers.oa2||'',
+  };
+  try {
+    // Dùng no-cors để tránh lỗi CORS từ Vercel → Apps Script
+    await fetch(SHEET_WEBHOOK, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+  } catch(e) {
+    console.error('Submit error:', e);
+  }
 }
 
 function restart(){
