@@ -185,7 +185,7 @@ body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--te
 
     <div class="field">
       <label class="label">Tên người khảo sát <span>*</span></label>
-      <input class="input" id="inp-surveyor" type="text" placeholder="Họ và tên của bạn">
+      <input class="input" id="inp-surveyor" type="text" placeholder="Họ và tên của anh/chị">
       <div class="err-msg" id="err-surveyor">Vui lòng nhập tên người khảo sát</div>
     </div>
 
@@ -304,18 +304,18 @@ const SHEET_WEBHOOK = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
 
 const QUESTIONS = [
   {id:1,sec:'bep',q:'Nhân sự bếp có đeo khẩu trang trong suốt ca làm việc không?'},
-  {id:2,sec:'bep',q:'Nhân sự bếp có đội mũ/lưới tóc khi chế biến không?'},
+  {id:2,sec:'bep',q:'Nhân sự bếp có đội nón khi chế biến không?'},
   {id:3,sec:'bep',q:'Dụng cụ chế biến thực phẩm tươi sống và đã qua chế biến có để riêng biệt không?'},
   {id:4,sec:'bep',q:'Quy trình 1 chiều (Tiếp nhận → Sơ chế → Chế biến → Chia suất) có được tuân thủ không?'},
-  {id:5,sec:'bep',q:'Khu vực bếp có được vệ sinh sạch sẽ theo tiêu chuẩn 5S không?'},
-  {id:6,sec:'pha',q:'Nhân viên pha chế có đeo khẩu trang và buộc tóc/đội mũ không?'},
+  {id:5,sec:'bep',q:'Khu vực bếp có được vệ sinh sạch sẽ theo tiêu chuẩn 5S không? (5S: Sàng lọc – Sắp xếp – Sạch sẽ – Săn sóc – Sẵn sàng)'},
+  {id:6,sec:'pha',q:'Nhân viên pha chế có đeo khẩu trang và buộc tóc/đội nón không?'},
   {id:7,sec:'pha',q:'Nhân viên có cắt móng tay ngắn và không đeo trang sức khi làm việc không?'},
   {id:8,sec:'pha',q:'Dụng cụ pha chế (shaker, ly, muỗng…) có được vệ sinh đúng quy trình sau mỗi ca không?'},
   {id:9,sec:'pha',q:'Khu vực quầy pha chế có gọn sạch, nguyên liệu sắp xếp đúng vị trí không?'},
   {id:10,sec:'kho',q:'Hàng hóa trong kho có được sắp xếp theo nguyên tắc FIFO (hàng vào trước lấy ra trước) không?'},
-  {id:11,sec:'kho',q:'Hàng hóa có được kê cách sàn ≥20cm, cách tường ≥50cm không?'},
+  {id:11,sec:'kho',q:'Hàng hóa có được kê cách sàn ≥20cm hoặc có để lên pallet không?'},
   {id:12,sec:'kho',q:'Tủ mát có duy trì nhiệt độ 2–5°C và được theo dõi mỗi 1 giờ không?'},
-  {id:13,sec:'kho',q:'Tất cả nguyên liệu sau khi khui bao bì có được dán tem DUE (D/U/E) đầy đủ không?'},
+  {id:13,sec:'kho',q:'Tất cả nguyên liệu sau khi khui bao bì có được dán tem DUE (tem hạn sử dụng) đầy đủ không?'},
   {id:14,sec:'con',q:'Nhân viên có rửa tay đúng quy trình trước khi tiếp xúc thực phẩm không?'},
   {id:15,sec:'con',q:'Cơ sở có checklist kiểm tra vệ sinh đầu ca và thực hiện thường xuyên không?'},
 ];
