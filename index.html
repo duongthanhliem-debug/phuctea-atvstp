@@ -4,95 +4,76 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Phúc Tea – Kiểm tra ATTP</title>
-<link rel="icon" type="image/png" href="logo3.png?v=2">
-<link rel="apple-touch-icon" href="logo3.png?v=2">
-<link rel="shortcut icon" href="logo3.png?v=2">
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="logo3.png?v=3">
+<link rel="apple-touch-icon" href="logo3.png?v=3">
+<link rel="shortcut icon" href="logo3.png?v=3">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root {
-  --orange:#E65100; --orange-2:#FF8A50; --orange-bg:#FFF3E0; --orange-border:#FFCC80;
-  --green:#2E7D32; --green-bg:#E8F5E9; --green-border:#A5D6A7;
-  --red:#C62828; --red-bg:#FFEBEE; --red-border:#EF9A9A;
-  --yellow-text:#E65100; --yellow-bg:#FFF8E1; --yellow-border:#FFE082;
-  --blue:#0D47A1; --blue-bg:#E3F2FD; --blue-border:#90CAF9;
-  --purple:#4A148C; --purple-bg:#F3E5F5; --purple-border:#CE93D8;
-  --text:#111827; --text-2:#6B7280; --text-3:#9CA3AF;
-  --border:#E5E7EB; --bg:#F3F4F6; --white:#FFFFFF;
-  --radius:16px; --radius-sm:10px;
+:root{
+  --orange:#E65100;--orange-bg:#FFF3E0;--orange-border:#FFCC80;
+  --green:#2E7D32;--green-bg:#E8F5E9;--green-border:#A5D6A7;
+  --red:#C62828;--red-bg:#FFEBEE;--red-border:#EF9A9A;
+  --yellow-text:#E65100;--yellow-bg:#FFF8E1;--yellow-border:#FFE082;
+  --blue:#0D47A1;--blue-bg:#E3F2FD;--blue-border:#90CAF9;
+  --purple:#4A148C;--purple-bg:#F3E5F5;--purple-border:#CE93D8;
+  --olive:#827717;--olive-bg:#FFF9C4;--olive-border:#F9A825;
+  --teal:#00695C;--teal-bg:#E0F2F1;--teal-border:#80CBC4;
+  --text:#111827;--text-2:#6B7280;--text-3:#9CA3AF;
+  --border:#E5E7EB;--bg:#F3F4F6;--white:#FFFFFF;
+  --radius:16px;--radius-sm:10px;
   --shadow:0 1px 3px rgba(0,0,0,0.07),0 8px 32px rgba(0,0,0,0.07);
-  --shadow-sm:0 1px 2px rgba(0,0,0,0.06),0 2px 8px rgba(0,0,0,0.05);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
-.page{display:none;} .page.active{display:block;}
+.page{display:none;}.page.active{display:block;}
 .container{max-width:600px;margin:0 auto;padding:20px 16px 60px;}
-
-/* BRAND */
 .brand{display:flex;align-items:center;gap:12px;margin-bottom:24px;}
 .brand-logo{width:44px;height:44px;border-radius:12px;overflow:hidden;background:var(--orange-bg);display:flex;align-items:center;justify-content:center;}
 .brand-logo img{width:100%;height:100%;object-fit:contain;}
 .brand-logo-fallback{font-size:22px;}
-.brand-info{}
 .brand-name{font-size:16px;font-weight:700;color:var(--orange);}
 .brand-sub{font-size:12px;color:var(--text-2);}
-
-/* CARDS */
 .card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;margin-bottom:16px;}
 .card-accent{border-top:4px solid var(--orange);}
-
-/* INTRO */
 .intro-title{font-size:22px;font-weight:800;line-height:1.3;margin-bottom:8px;}
 .intro-desc{font-size:14px;color:var(--text-2);line-height:1.7;margin-bottom:20px;}
 .stat-row{display:flex;gap:10px;margin-bottom:22px;}
 .stat{flex:1;background:var(--bg);border-radius:var(--radius-sm);padding:12px;text-align:center;}
 .stat-n{font-size:22px;font-weight:700;color:var(--orange);}
 .stat-l{font-size:11px;color:var(--text-2);margin-top:2px;}
-
-/* FORM */
 .field{margin-bottom:16px;}
-.label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--text);}
+.label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;}
 .label span{color:var(--orange);}
 .input{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-family:inherit;color:var(--text);background:var(--white);outline:none;transition:border .2s;}
 .input:focus{border-color:var(--orange);}
 .input.error{border-color:var(--red);}
-.select-wrap{position:relative;}
-.select{width:100%;padding:12px 36px 12px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-family:inherit;color:var(--text);background:var(--white);outline:none;transition:border .2s;appearance:none;-webkit-appearance:none;}
-.select:focus{border-color:var(--orange);}
-.select.error{border-color:var(--red);}
-.select-arrow{position:absolute;right:14px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--text-2);}
 .err-msg{font-size:12px;color:var(--red);margin-top:4px;display:none;}
 .err-msg.show{display:block;}
-
-/* BUTTON */
 .btn{width:100%;padding:15px;border:none;border-radius:var(--radius-sm);font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;transition:all .15s;}
 .btn-primary{background:var(--orange);color:#fff;}
 .btn-primary:hover{background:#BF360C;}
 .btn-primary:disabled{opacity:.35;cursor:not-allowed;}
-.btn-secondary{background:var(--white);color:var(--text-2);border:1.5px solid var(--border);}
-.btn-secondary:hover{background:var(--bg);}
-.btn-sm{width:auto;padding:10px 18px;font-size:14px;}
-
-/* PROGRESS */
+.btn-back{padding:15px 20px;background:var(--white);color:var(--text-2);border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:inherit;cursor:pointer;flex-shrink:0;}
+.btn-back:hover{background:var(--bg);}
 .prog-wrap{margin-bottom:20px;}
 .prog-top{display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px;}
 .prog-sec{color:var(--orange);font-weight:600;}
 .prog-count{color:var(--text-2);}
 .prog-bar{height:6px;background:var(--border);border-radius:999px;overflow:hidden;}
 .prog-fill{height:100%;background:var(--orange);border-radius:999px;transition:width .4s cubic-bezier(.4,0,.2,1);}
-
-/* SECTION BADGE */
 .sec-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;margin-bottom:12px;letter-spacing:.3px;text-transform:uppercase;}
 .badge-bep{background:var(--orange-bg);color:#BF360C;border:1px solid var(--orange-border);}
 .badge-pha{background:var(--green-bg);color:#1B5E20;border:1px solid var(--green-border);}
 .badge-kho{background:var(--blue-bg);color:#0D47A1;border:1px solid var(--blue-border);}
 .badge-con{background:var(--purple-bg);color:#4A148C;border:1px solid var(--purple-border);}
-
-/* QUESTION */
-.q-text{font-size:16px;font-weight:600;line-height:1.6;margin-bottom:18px;}
+.badge-giay{background:var(--olive-bg);color:#827717;border:1px solid var(--olive-border);}
+.badge-moi{background:var(--teal-bg);color:#00695C;border:1px solid var(--teal-border);}
+.q-text{font-size:16px;font-weight:600;line-height:1.6;margin-bottom:10px;}
+.q-hint{font-size:13px;color:var(--text-2);background:var(--bg);border-left:3px solid var(--orange);padding:10px 12px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin-bottom:16px;line-height:1.6;}
 .opts{display:flex;flex-direction:column;gap:8px;}
-.opt{width:100%;text-align:left;padding:13px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-family:inherit;cursor:pointer;background:var(--white);color:var(--text);transition:all .15s;display:flex;align-items:center;gap:12px;}
+.opt{width:100%;text-align:left;padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-family:inherit;cursor:pointer;background:var(--white);color:var(--text);transition:all .15s;display:flex;align-items:center;gap:12px;}
 .opt:hover{border-color:var(--orange);background:var(--orange-bg);}
-.opt-dot{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--border);flex-shrink:0;transition:all .15s;}
+.opt-dot{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--border);flex-shrink:0;}
 .opt.yes{border-color:#66BB6A;background:var(--green-bg);color:var(--green);font-weight:600;}
 .opt.yes .opt-dot{background:#66BB6A;border-color:#66BB6A;}
 .opt.partial{border-color:#FFCA28;background:var(--yellow-bg);color:var(--yellow-text);font-weight:600;}
@@ -101,22 +82,17 @@ body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--te
 .opt.no .opt-dot{background:#EF9A9A;border-color:#EF9A9A;}
 .opt.unknown{border-color:#D1D5DB;background:var(--bg);color:var(--text-2);font-weight:600;}
 .opt.unknown .opt-dot{background:#D1D5DB;border-color:#D1D5DB;}
-
-/* NAV */
+.opt.na{border-color:#B0BEC5;background:#ECEFF1;color:#546E7A;font-weight:600;}
+.opt.na .opt-dot{background:#B0BEC5;border-color:#B0BEC5;}
 .nav{display:flex;gap:10px;margin-top:4px;}
-.btn-back{padding:15px 20px;background:var(--white);color:var(--text-2);border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:15px;font-family:inherit;cursor:pointer;transition:all .15s;flex-shrink:0;}
-.btn-back:hover{background:var(--bg);}
-
-/* RESULT */
-.score-hero{text-align:center;padding:8px 0 20px;}
 .score-ring{width:130px;height:130px;border-radius:50%;margin:0 auto 14px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:5px solid;}
 .ring-great{border-color:#66BB6A;background:var(--green-bg);color:var(--green);}
 .ring-ok{border-color:#FFCA28;background:var(--yellow-bg);color:var(--yellow-text);}
 .ring-bad{border-color:#EF9A9A;background:var(--red-bg);color:var(--red);}
 .score-pct{font-size:36px;font-weight:800;}
 .score-pts{font-size:12px;color:var(--text-2);margin-top:2px;}
-.r-title{font-size:20px;font-weight:800;margin-bottom:6px;}
-.r-sub{font-size:14px;color:var(--text-2);line-height:1.7;}
+.r-title{font-size:20px;font-weight:800;margin-bottom:6px;text-align:center;}
+.r-sub{font-size:14px;color:var(--text-2);line-height:1.7;text-align:center;}
 .divider{height:1px;background:var(--border);margin:20px 0;}
 .ss-title{font-size:13px;font-weight:700;margin-bottom:12px;}
 .ss-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:13px;}
@@ -124,625 +100,493 @@ body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--te
 .ss-bar{width:100px;height:8px;background:var(--border);border-radius:4px;overflow:hidden;}
 .ss-fill{height:100%;border-radius:4px;}
 .ss-pct{width:36px;text-align:right;font-weight:700;font-size:13px;}
-
-/* ISSUES */
 .issue-item{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--text-2);line-height:1.5;}
 .issue-item:last-child{border-bottom:none;}
 .i-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px;}
-.dot-red{background:#EF9A9A;} .dot-yellow{background:#FFCA28;}
+.dot-red{background:#EF9A9A;}.dot-yellow{background:#FFCA28;}
 .chip{display:inline-block;font-size:11px;padding:2px 7px;border-radius:999px;margin-left:6px;font-weight:600;}
 .chip-red{background:var(--red-bg);color:var(--red);}
 .chip-yellow{background:var(--yellow-bg);color:var(--yellow-text);}
-
-/* QUICK ACTIONS */
-.qa-wrap{}
 .qa-item{display:flex;gap:12px;align-items:flex-start;padding:12px;background:var(--bg);border-radius:var(--radius-sm);margin-bottom:8px;border-left:3px solid var(--orange);}
 .qa-num{width:22px;height:22px;border-radius:50%;background:var(--orange);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
 .qa-text{font-size:13px;line-height:1.6;color:var(--text);}
-.qa-text strong{color:var(--orange);}
-
-/* DOCS TO SEND */
-.doc-item{display:flex;gap:10px;align-items:center;padding:10px 12px;background:var(--blue-bg);border-radius:var(--radius-sm);margin-bottom:8px;font-size:13px;color:var(--blue);}
-.doc-icon{font-size:18px;flex-shrink:0;}
-
-/* CONTACT */
-.contact-card{background:var(--green-bg);border-radius:var(--radius-sm);padding:16px;margin-bottom:12px;border:1px solid var(--green-border);}
-.contact-title{font-size:13px;font-weight:700;color:var(--green);margin-bottom:4px;}
-.contact-info{font-size:13px;color:var(--text-2);line-height:1.7;margin-bottom:12px;}
-.btn-zalo{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px;background:#0068FF;color:#fff;border:none;border-radius:var(--radius-sm);font-size:14px;font-weight:700;font-family:inherit;cursor:pointer;text-decoration:none;transition:all .15s;}
-.btn-zalo:hover{background:#0052CC;}
 .ops-note{background:var(--blue-bg);border-radius:var(--radius-sm);padding:14px 16px;margin-bottom:12px;border:1px solid var(--blue-border);}
 .ops-note-title{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:4px;}
 .ops-note-text{font-size:13px;color:var(--text-2);line-height:1.7;}
-
+.contact-card{background:var(--green-bg);border-radius:var(--radius-sm);padding:16px;margin-bottom:12px;border:1px solid var(--green-border);}
+.contact-title{font-size:13px;font-weight:700;color:var(--green);margin-bottom:4px;}
+.contact-info{font-size:13px;color:var(--text-2);line-height:1.7;margin-bottom:12px;}
+.btn-zalo{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px;background:#0068FF;color:#fff;border:none;border-radius:var(--radius-sm);font-size:14px;font-weight:700;font-family:inherit;cursor:pointer;text-decoration:none;}
+.btn-zalo:hover{background:#0052CC;}
+.learn-card{background:linear-gradient(135deg,#FFF3E0,#FFF8E1);border:1px solid var(--orange-border);border-radius:var(--radius);padding:20px;margin-bottom:12px;}
+.learn-title{font-size:14px;font-weight:700;color:var(--orange);margin-bottom:6px;}
+.learn-desc{font-size:13px;color:var(--text-2);line-height:1.7;margin-bottom:14px;}
+.learn-item{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;background:#fff;border-radius:var(--radius-sm);margin-bottom:8px;border:1px solid var(--border);text-decoration:none;color:var(--text);}
+.learn-item:hover{border-color:var(--orange);background:var(--orange-bg);}
+.learn-item-icon{font-size:20px;flex-shrink:0;}
+.learn-item-title{font-size:13px;font-weight:600;margin-bottom:2px;}
+.learn-item-sub{font-size:12px;color:var(--text-2);}
 .footer-note{font-size:12px;color:var(--text-3);text-align:center;margin-top:10px;line-height:1.6;}
+.open-badge{display:inline-flex;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;margin-bottom:12px;background:#F0FDF4;color:#166534;border:1px solid #86EFAC;}
 </style>
 </head>
 <body>
 
-<!-- PAGE 1: INTRO -->
+<!-- TRANG 1: GIỚI THIỆU -->
 <div class="page active" id="page-intro">
 <div class="container">
   <div class="brand">
     <div class="brand-logo">
-      <img src="logo3.png" alt="Phúc Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <img src="logo3.png" alt="Phúc Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
       <span class="brand-logo-fallback" style="display:none">🍵</span>
     </div>
-    <div class="brand-info">
-      <div class="brand-name">Phúc Tea</div>
-      <div class="brand-sub">Hệ thống kiểm tra nội bộ</div>
-    </div>
+    <div><div class="brand-name">Phúc Tea</div><div class="brand-sub">Hệ thống kiểm tra nội bộ</div></div>
   </div>
-
   <div class="card card-accent">
     <div class="intro-title">Kiểm tra An toàn Thực phẩm</div>
-    <div class="intro-desc">Tự đánh giá mức độ tuân thủ tiêu chuẩn vệ sinh ATTP tại chi nhánh theo đúng SOP Phúc Tea. Kết quả sẽ được gửi về bộ phận Operations.</div>
+    <div class="intro-desc">Tự đánh giá mức độ tuân thủ tiêu chuẩn vệ sinh ATTP tại cửa hàng theo đúng SOP Phúc Tea và quy định pháp luật hiện hành. Kết quả sẽ gửi về bộ phận Operations.</div>
     <div class="stat-row">
-      <div class="stat"><div class="stat-n">17</div><div class="stat-l">Câu hỏi</div></div>
-      <div class="stat"><div class="stat-n">4</div><div class="stat-l">Khu vực</div></div>
-      <div class="stat"><div class="stat-n">~3'</div><div class="stat-l">Thời gian</div></div>
+      <div class="stat"><div class="stat-n" id="stat-q">32</div><div class="stat-l">Câu hỏi</div></div>
+      <div class="stat"><div class="stat-n">6</div><div class="stat-l">Khu vực</div></div>
+      <div class="stat"><div class="stat-n">~8'</div><div class="stat-l">Thời gian</div></div>
     </div>
-
     <div class="field">
       <label class="label">Tên người khảo sát <span>*</span></label>
       <input class="input" id="inp-surveyor" type="text" placeholder="Họ và tên của bạn">
       <div class="err-msg" id="err-surveyor">Vui lòng nhập tên người khảo sát</div>
     </div>
-
     <div class="field">
       <label class="label">Tên cửa hàng <span>*</span></label>
-      <div style="position:relative;">
-        <input class="input" id="inp-branch" type="text" placeholder="Tìm hoặc nhập tên chi nhánh..." autocomplete="off"
-          oninput="filterBranch(this.value)" onfocus="showDropdown()" onblur="hideDropdown()">
-        <div id="branch-dropdown" style="display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:1.5px solid var(--orange);border-top:none;border-radius:0 0 var(--radius-sm) var(--radius-sm);max-height:220px;overflow-y:auto;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,0.1);"></div>
-      </div>
-      <div style="font-size:12px;color:var(--text-3);margin-top:4px;">Gõ để tìm nhanh. Nếu chưa có trong danh sách, nhập tên mới.</div>
-      <div class="err-msg" id="err-branch">Vui lòng chọn hoặc nhập tên chi nhánh</div>
+      <input class="input" id="inp-branch" type="text" placeholder="VD: PHUCTEA003 - TÔN ĐỨC THẮNG CAO LÃNH">
+      <div class="err-msg" id="err-branch">Vui lòng nhập tên cửa hàng</div>
     </div>
-
     <button class="btn btn-primary" onclick="startQuiz()">Bắt đầu kiểm tra →</button>
   </div>
 </div>
 </div>
 
-<!-- PAGE 2: QUIZ -->
+<!-- TRANG 2: CÂU HỎI -->
 <div class="page" id="page-quiz">
 <div class="container">
   <div class="brand">
     <div class="brand-logo">
-      <img src="logo3.png" alt="Phúc Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <img src="logo3.png" alt="Phúc Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
       <span class="brand-logo-fallback" style="display:none">🍵</span>
     </div>
-    <div class="brand-info">
-      <div class="brand-name">Phúc Tea</div>
-      <div class="brand-sub" id="quiz-branch-label">Chi nhánh</div>
-    </div>
+    <div><div class="brand-name">Phúc Tea</div><div class="brand-sub" id="quiz-branch-label">Chi nhánh</div></div>
   </div>
-
   <div id="quiz-body"></div>
 </div>
 </div>
 
-<!-- PAGE 3: RESULT -->
+<!-- TRANG 3: KẾT QUẢ -->
 <div class="page" id="page-result">
 <div class="container">
   <div class="brand">
     <div class="brand-logo">
-      <img src="logo3.png" alt="Phúc Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <img src="logo3.png" alt="Phúc Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
       <span class="brand-logo-fallback" style="display:none">🍵</span>
     </div>
-    <div class="brand-info">
-      <div class="brand-name">Phúc Tea</div>
-      <div class="brand-sub">Kết quả kiểm tra</div>
-    </div>
+    <div><div class="brand-name">Phúc Tea</div><div class="brand-sub">Kết quả kiểm tra</div></div>
   </div>
   <div id="result-body"></div>
 </div>
 </div>
 
 <script>
-// ─── DANH SÁCH CHI NHÁNH ────────────────────────────────
-const BRANCHES = [
-  'PHUCTEA003 - TÔN ĐỨC THẮNG CAO LÃNH','PHUCTEA004 - THÍCH QUẢNG ĐỨC LONG KHÁNH',
-  'PHUCTEA006 - PHAN RANG','PHUCTEA007 - TÔN ĐỨC THẮNG LONG THÀNH',
-  'PHUCTEA009 - TRẢNG BOM','PHUCTEA017 - ĐỊNH QUÁN','PHUCTEA023 - TRẢNG DÀI',
-  'PHUCTEA034 - NGUYỄN AN NINH DĨ AN','PHUCTEA044 - AN NHƠN','PHUCTEA045 - PHÚ TÀI',
-  'PHUCTEA052 - UYÊN HƯNG','PHUCTEA056 - BÌNH TÂN VĨNH LONG','PHUCTEA059 - MỸ PHƯỚC BẾN CÁT',
-  'PHUCTEA062 - BẾN LỨC','PHUCTEA068 - HÀ LAM','PHUCTEA076 - TRỊ AN','PHUCTEA079 - TRÀ ÔN',
-  'PHUCTEA085 - HÙNG VƯƠNG 2 XUÂN LỘC','PHUCTEA091 - BÌNH CHÂU','PHUCTEA094 - NINH PHƯỚC',
-  'PHUCTEA090 - VĨNH THẠNH','PHUCTEA095 - CÁI TẮC','PHUCTEA103 - NGÃ BẢY',
-  'PHUCTEA099 - BÌNH MINH','PHUCTEA101 - VĨNH AN','PHUCTEA107 - MỸ PHƯỚC 2 BẾN CÁT',
-  'PHUCTEA108 - Ô MÔN','PHUCTEA111 - BÀU BÀNG','PHUCTEACENTER001 - CẦN THƠ',
-  'PHUCTEA114 - MỸ PHƯỚC 3 BẾN CÁT','PHUCTEA116 - AN TÂY','PHUCTEA120 - CHƠN THÀNH',
-  'PHUCTEA128 - GÒ CÔNG TÂY','PHUCTEA134 - AN THỚI PHÚ QUỐC','PHUCTEA135 - VÕ NGUYÊN GIÁP TRÀ VINH',
-  'PHUCTEA137 - VĨNH TÂN','PHUCTEA138 - TRẦN HOÀNG NA CẦN THƠ','PHUCTEA139 - HÒA LẠC HÀ NỘI',
-  'PHUCTEA140 - NGUYỄN VĂN KHỐI GÒ VẤP','PHUCTEA143 - THỚI HÒA BẾN CÁT',
-  'PHUCTEA147 - PHÚ LỢI THỦ DẦU MỘT','PHUCTEA148 - LÊ LỢI LAI VUNG',
-  'PHUCTEA149 - HÙNG VƯƠNG ĐỒNG XOÀI','PHUCTEA150 - CHỬ ĐỒNG TỬ TÂN BÌNH',
-  'PHUCTEA151 - BÌNH SƠN LONG THÀNH','PHUCTEA152 - VÕ OANH BÌNH THẠNH',
-  'PHUCTEA153 - HỒ THỊ THƯỞNG THỚI LAI','PHUCTEA155 - PHÚ CHÁNH',
-  'PHUCTEA156 - ĐINH ĐỨC THIỆN BÌNH CHÁNH','PHUCTEA157 - ĐOÀN THỊ ĐIỂM XUÂN LỘC',
-  'PHUCTEA158 - ĐỨC HÒA TÂY NINH','PHUCTEA159 - TÂN PHƯỚC KHÁNH','PHUCTEA160 - CẦU TRÀM',
-  'PHUCTEA161 - ĐỖ XUÂN HỢP','PHUCTEA162 - THẠNH PHÚ VĨNH CỬU',
-  'PHUCTEA163 - HÒA THÀNH TÂY NINH','PHUCTEA164 - NGUYỄN VĂN LINH BÀ RỊA',
-];
-
-// ─── COMBOBOX ────────────────────────────────────────────
-let dropdownVisible = false;
-let hideTimer = null;
-
-function renderDropdownItems(list) {
-  const dd = document.getElementById('branch-dropdown');
-  if (!dd) return;
-  if (list.length === 0) {
-    dd.innerHTML = `<div style="padding:10px 14px;font-size:13px;color:var(--text-3);">Không tìm thấy — tên bạn nhập sẽ được lưu</div>`;
-  } else {
-    dd.innerHTML = list.map(b => `
-      <div onmousedown="event.preventDefault();selectBranch('${b.replace(/'/g,"\\'")}')"
-        style="padding:10px 14px;font-size:14px;cursor:pointer;border-bottom:1px solid var(--border);transition:background .1s;"
-        onmouseover="this.style.background='var(--orange-bg)'"
-        onmouseout="this.style.background=''">${b}</div>
-    `).join('');
-  }
-  dd.style.display = 'block';
-  dropdownVisible = true;
-}
-
-function showDropdown() {
-  if (hideTimer) clearTimeout(hideTimer);
-  const val = document.getElementById('inp-branch').value;
-  const filtered = val ? BRANCHES.filter(b => b.toLowerCase().includes(val.toLowerCase())) : BRANCHES;
-  renderDropdownItems(filtered.slice(0, 20));
-}
-
-function hideDropdown() {
-  hideTimer = setTimeout(() => {
-    const dd = document.getElementById('branch-dropdown');
-    if (dd) dd.style.display = 'none';
-    dropdownVisible = false;
-  }, 200);
-}
-
-function filterBranch(val) {
-  if (hideTimer) clearTimeout(hideTimer);
-  const filtered = BRANCHES.filter(b => b.toLowerCase().includes(val.toLowerCase()));
-  renderDropdownItems(filtered.slice(0, 20));
-}
-
-function selectBranch(val) {
-  const inp = document.getElementById('inp-branch');
-  inp.value = val;
-  const dd = document.getElementById('branch-dropdown');
-  if (dd) dd.style.display = 'none';
-  dropdownVisible = false;
-  if (hideTimer) clearTimeout(hideTimer);
-}
-
-// ─── CẤU HÌNH ───────────────────────────────────────────
-const SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbwAjgutIXkax51ZxaTW2B6yr3GR9jS3HlJBN-sV0FCwMQKu3kBpUOIWp3nlH-ZBdK7W_A/exec';
-// ────────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════
+// CẤU HÌNH — dán Google Apps Script URL vào đây
+const SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbzxaymhHkwchSE58RCyKsREFd1bZcrEUKG4P5RgZvBtbiKB1fY82nd59sMVDTFAH7PxTA/exec';
+// ══════════════════════════════════════════════════════════
 
 const QUESTIONS = [
-  {id:1,sec:'bep',q:'Nhân sự bếp có đeo khẩu trang trong suốt ca làm việc không?'},
-  {id:2,sec:'bep',q:'Nhân sự bếp có đội nón khi chế biến không?'},
-  {id:3,sec:'bep',q:'Dụng cụ chế biến thực phẩm tươi sống và đã qua chế biến có để riêng biệt không?'},
-  {id:4,sec:'bep',q:'Quy trình 1 chiều (Tiếp nhận → Sơ chế → Chế biến → Chia suất) có được tuân thủ không?'},
-  {id:5,sec:'bep',q:'Khu vực bếp có được vệ sinh sạch sẽ theo tiêu chuẩn 5S không? (5S: Sàng lọc – Sắp xếp – Sạch sẽ – Săn sóc – Sẵn sàng)'},
-  {id:6,sec:'pha',q:'Nhân viên pha chế có đeo khẩu trang và buộc tóc/đội nón không?'},
-  {id:7,sec:'pha',q:'Nhân viên có cắt móng tay ngắn và không đeo trang sức khi làm việc không?'},
-  {id:8,sec:'pha',q:'Dụng cụ pha chế (shaker, ly, muỗng…) có được vệ sinh đúng quy trình sau mỗi ca không?'},
-  {id:9,sec:'pha',q:'Khu vực quầy pha chế có gọn sạch, nguyên liệu sắp xếp đúng vị trí không?'},
-  {id:10,sec:'kho',q:'Hàng hóa trong kho có được sắp xếp theo nguyên tắc FIFO (hàng vào trước lấy ra trước) không?'},
-  {id:11,sec:'kho',q:'Hàng hóa có được kê cách sàn ≥20cm hoặc có để lên pallet không?'},
-  {id:12,sec:'kho',q:'Tủ mát có duy trì nhiệt độ 2–5°C và được theo dõi mỗi 1 giờ không?'},
-  {id:13,sec:'kho',q:'Tất cả nguyên liệu sau khi khui bao bì có được dán tem DUE (tem hạn sử dụng) đầy đủ không?'},
-  {id:14,sec:'con',q:'Nhân viên có rửa tay đúng quy trình trước khi tiếp xúc thực phẩm không?'},
-  {id:15,sec:'con',q:'Cơ sở có checklist kiểm tra vệ sinh đầu ca và thực hiện thường xuyên không?'},
+  // ── KHU VỰC BẾP ──────────────────────────────────────
+  {id:1,sec:'bep',
+   q:'Nhân sự bếp có đeo khẩu trang trong suốt ca làm việc không?',
+   hint:'Khẩu trang phải che kín mũi và miệng, đeo liên tục từ đầu đến cuối ca — kể cả khi không có khách. Vi phạm có thể bị phạt từ 1–3 triệu đồng (NĐ 117/2020).'},
+  {id:2,sec:'bep',
+   q:'Nhân sự bếp có đội nón khi chế biến thực phẩm không?',
+   hint:'Nón hoặc lưới tóc giúp ngăn tóc rơi vào thực phẩm. Bắt buộc với tất cả người trực tiếp tiếp xúc thực phẩm (Thông tư 30/2012/TT-BYT).'},
+  {id:3,sec:'bep',
+   q:'Dụng cụ chế biến thực phẩm tươi sống và thực phẩm chín có được để riêng biệt không?',
+   hint:'Dao, thớt, rổ dùng cho thực phẩm sống phải tách riêng hoàn toàn với dụng cụ dùng cho thực phẩm chín. Nên dán nhãn màu để phân biệt rõ ràng.'},
+  {id:4,sec:'bep',
+   q:'Quy trình chế biến 1 chiều có được tuân thủ không? (Tiếp nhận → Sơ chế → Chế biến → Chia suất)',
+   hint:'Thực phẩm chỉ di chuyển 1 chiều từ khu bẩn sang khu sạch — tuyệt đối không đi ngược lại để tránh nhiễm chéo vi khuẩn.'},
+  {id:5,sec:'bep',
+   q:'Khu vực bếp có được vệ sinh sạch sẽ theo tiêu chuẩn 5S không?',
+   hint:'5S: Sàng lọc (loại bỏ thứ không cần) – Sắp xếp (đúng vị trí) – Sạch sẽ (lau dọn thường xuyên) – Săn sóc (duy trì) – Sẵn sàng (thành thói quen hằng ngày).'},
+  {id:6,sec:'bep',
+   q:'Khu vực bếp có biện pháp ngăn côn trùng, chuột, gián xâm nhập không?',
+   hint:'Cơ sở phải có lưới chắn côn trùng, bẫy chuột hoặc hợp đồng diệt côn trùng định kỳ (Thông tư 30/2012). Đây là lỗi hay bị phạt khi thanh tra.'},
+  {id:7,sec:'bep',
+   q:'Rác thải trong khu bếp có được thu gom vào thùng có nắp đậy và đổ định kỳ không?',
+   hint:'Thùng rác phải có nắp, không để rác tràn. Rác thực phẩm cần đổ ít nhất 1 lần/ngày để tránh mùi hôi và sinh côn trùng.'},
+
+  // ── KHU VỰC PHA CHẾ ──────────────────────────────────
+  {id:8,sec:'pha',
+   q:'Nhân viên pha chế có đeo khẩu trang và buộc tóc/đội nón trong ca làm việc không?',
+   hint:'Nhân viên pha chế tiếp xúc trực tiếp với đồ uống của khách — trang phục phải đạt chuẩn từ đầu đến cuối ca, không được bỏ qua.'},
+  {id:9,sec:'pha',
+   q:'Nhân viên có cắt móng tay ngắn và không đeo trang sức khi làm việc không?',
+   hint:'Móng tay dài và trang sức (nhẫn, vòng tay) là nơi vi khuẩn tích tụ và có thể rơi vào đồ uống. Bắt buộc tháo ra trước khi vào ca.'},
+  {id:10,sec:'pha',
+   q:'Dụng cụ pha chế (shaker, ly, muỗng, bình…) có được vệ sinh đúng quy trình sau mỗi ca không?',
+   hint:'Rửa bằng nước rửa chén, tráng lại bằng nước sạch, để ráo tự nhiên hoặc dùng máy sấy. Không lau bằng khăn dùng chung nhiều lần.'},
+  {id:11,sec:'pha',
+   q:'Nguồn nước dùng để pha chế có đảm bảo là nước sạch hoặc nước đã qua lọc không?',
+   hint:'Nước pha chế phải là nước máy qua bộ lọc đạt chuẩn hoặc nước đóng bình có kiểm định. Không dùng nước giếng chưa qua xử lý.'},
+  {id:12,sec:'pha',
+   q:'Khu vực quầy pha chế có gọn gàng, sạch sẽ, nguyên liệu sắp xếp đúng vị trí quy định không?',
+   hint:'Mỗi nguyên liệu có vị trí cố định, dễ lấy, dễ kiểm soát. Quầy phải được lau sạch đầu và cuối mỗi ca. Không để nguyên liệu lộn xộn.'},
+
+  // ── KHO & BẢO QUẢN ───────────────────────────────────
+  {id:13,sec:'kho',
+   q:'Hàng hóa trong kho có được sắp xếp theo nguyên tắc FIFO không? (Hàng vào trước lấy ra trước)',
+   hint:'FIFO giúp tránh hàng tồn quá hạn. Hàng mới nhập xếp phía sau/trong, hàng cũ xếp phía trước/ngoài để lấy ra dùng trước.'},
+  {id:14,sec:'kho',
+   q:'Hàng hóa có được kê cách sàn ≥20cm hoặc để lên pallet không?',
+   hint:'Tuyệt đối không để hàng trực tiếp xuống sàn — dễ bị ẩm mốc, côn trùng xâm nhập và khó vệ sinh phía dưới kệ hàng.'},
+  {id:15,sec:'kho',
+   q:'Kho hàng có tách riêng khu lưu trữ thực phẩm, hóa chất tẩy rửa và bao bì không?',
+   hint:'Hóa chất (nước rửa chén, chất tẩy) phải để khu riêng biệt. Tuyệt đối không để chung với thực phẩm hay bao bì đựng thực phẩm.'},
+  {id:16,sec:'kho',
+   q:'Tủ mát có duy trì nhiệt độ 2–5°C và được theo dõi ít nhất 2 lần/ca không?',
+   hint:'Nhiệt độ ngoài vùng 2–5°C khiến vi khuẩn phát triển nhanh. Phải có nhiệt kế gắn trong tủ và checklist ghi lại. Nếu tủ bị hỏng phải xử lý trong 2 giờ.'},
+  {id:17,sec:'kho',
+   q:'Tất cả nguyên liệu sau khi khui bao bì có được dán tem DUE (tem hạn sử dụng) đầy đủ không?',
+   hint:'Tem DUE: D = HSD gốc trên bao bì / U = Ngày giờ khui mở / E = Ngày giờ hết hạn theo tiêu chuẩn cửa hàng. Thiếu tem là vi phạm quy trình.'},
+  {id:18,sec:'kho',
+   q:'Thực phẩm hết hạn hoặc biến chất có được loại bỏ ngay, không để lẫn với hàng còn tốt không?',
+   hint:'Thực phẩm hết hạn phải hủy ngay và ghi nhận vào sổ hủy hàng. Để hàng hết hạn lẫn với hàng tốt bị phạt đến 30 triệu đồng (NĐ 115/2018).'},
+
+  // ── CON NGƯỜI & VỆ SINH CÁ NHÂN ──────────────────────
+  {id:19,sec:'con',
+   q:'Nhân viên có rửa tay đúng quy trình 6 bước trước khi tiếp xúc thực phẩm không?',
+   hint:'6 bước: (1) ướt tay (2) xà phòng (3) chà lòng bàn tay (4) chà mu bàn tay (5) chà kẽ ngón tay (6) rửa sạch & lau khô. Tối thiểu 30 giây. Bắt buộc rửa lại sau khi đi vệ sinh, chạm rác, điện thoại.'},
+  {id:20,sec:'con',
+   q:'Nhân viên có mặc trang phục bảo hộ sạch sẽ, đúng quy định trong suốt ca làm việc không?',
+   hint:'Trang phục phải sạch, không rách, không có mùi. Không mặc đồng phục ra ngoài rồi vào bếp luôn mà không thay — đây là nguồn lây nhiễm phổ biến.'},
+  {id:21,sec:'con',
+   q:'Cửa hàng có bảng hướng dẫn rửa tay treo tại khu vực bếp và nhà vệ sinh không?',
+   hint:'Thông tư 30/2012 yêu cầu cơ sở dịch vụ ăn uống phải có biển nhắc nhở rửa tay ở nơi dễ thấy. Đây là điều kiện bắt buộc khi thanh tra kiểm tra.'},
+  {id:22,sec:'con',
+   q:'Cửa hàng có checklist kiểm tra vệ sinh đầu ca và được thực hiện thường xuyên không?',
+   hint:'Checklist đầu ca giúp nhân viên tự kiểm tra trước khi phục vụ. Nên in sẵn, dán tại bếp/quầy pha chế và ký xác nhận mỗi ngày.'},
+  {id:23,sec:'con',
+   q:'Nhân viên đang bị bệnh (cúm, tiêu chảy, nhiễm trùng da, ho…) có được tạm bố trí không tiếp xúc thực phẩm không?',
+   hint:'Luật ATTP 55/2010 quy định người mắc bệnh truyền nhiễm không được tiếp xúc trực tiếp thực phẩm. Bắt buộc bố trí việc khác hoặc cho nghỉ trong thời gian bệnh.'},
+
+  // ── GIẤY TỜ PHÁP LÝ ──────────────────────────────────
+  {id:24,sec:'giay',
+   q:'Cửa hàng có Giấy chứng nhận An toàn Vệ sinh Thực phẩm (VSATTP) còn hiệu lực không?',
+   hint:'Giấy do Chi cục ATVSTP địa phương cấp, hiệu lực 3 năm. Phải treo/lưu tại cửa hàng. Kinh doanh không có giấy này bị phạt 30–40 triệu đồng (NĐ 115/2018).'},
+  {id:25,sec:'giay',
+   q:'Toàn bộ nhân viên trực tiếp chế biến đã có Giấy xác nhận kiến thức ATTP không?',
+   hint:'NĐ 15/2018 yêu cầu chủ cơ sở và người chế biến trực tiếp phải có giấy xác nhận kiến thức ATTP, cấp lại sau 3 năm. Thiếu giấy bị phạt 500.000–1 triệu đồng/người.'},
+  {id:26,sec:'giay',
+   q:'Toàn bộ nhân viên đã được khám sức khỏe định kỳ và có Giấy chứng nhận sức khỏe không?',
+   hint:'Nhân viên chế biến thực phẩm phải khám sức khỏe ít nhất 1 lần/năm tại cơ sở y tế được cấp phép. Giấy chứng nhận sức khỏe phải lưu tại cửa hàng.'},
+  {id:27,sec:'giay',
+   q:'Cửa hàng có Giấy đăng ký kinh doanh còn hiệu lực, đúng ngành nghề F&B không?',
+   hint:'Giấy đăng ký kinh doanh (hoặc Giấy phép kinh doanh) phải ghi đúng ngành nghề kinh doanh F&B, còn hiệu lực. Phải có bản gốc/sao y lưu tại cửa hàng.'},
+  {id:28,sec:'giay',
+   q:'Cửa hàng có trang bị bình chữa cháy còn hạn sử dụng và được kiểm tra PCCC định kỳ không?',
+   hint:'Bình chữa cháy (CO2 hoặc bột) phải được kiểm định định kỳ và còn hạn. Cơ sở cần được cơ quan PCCC địa phương xác nhận đủ điều kiện. Thiếu bị phạt 5–10 triệu đồng.'},
+
+  // ── MÔI TRƯỜNG & CƠ SỞ VẬT CHẤT ─────────────────────
+  {id:29,sec:'moi',
+   q:'Khu vực chế biến có đủ ánh sáng để nhân viên làm việc và coi rõ thực phẩm không?',
+   hint:'Ánh sáng không đủ khiến nhân viên dễ bỏ sót tạp chất, dị vật trong thực phẩm. Khu vực bếp và pha chế cần đủ sáng để quan sát rõ ràng (tối thiểu 200 lux theo Thông tư 30/2012).'},
+  {id:30,sec:'moi',
+   q:'Hệ thống thoát nước, cống rãnh trong khu chế biến có thông thoáng, không ứ đọng không?',
+   hint:'Nước đọng là môi trường sinh sản của vi khuẩn và côn trùng. Cống rãnh phải có lưới chắn rác, thông thoáng và được vệ sinh ít nhất 1 lần/tuần.'},
+  {id:31,sec:'moi',
+   q:'Nhà vệ sinh có đủ xà phòng rửa tay, nước sạch và giấy/khăn lau tay sử dụng một lần không?',
+   hint:'Nhà vệ sinh phải đủ điều kiện để nhân viên rửa tay sạch sau khi đi vệ sinh. Không dùng khăn vải dùng chung — phải dùng khăn giấy hoặc máy sấy tay.'},
+  {id:32,sec:'moi',
+   q:'Bề mặt tiếp xúc với thực phẩm (bàn chế biến, quầy pha chế) có làm bằng vật liệu không gỉ, dễ vệ sinh không?',
+   hint:'Bề mặt tiếp xúc thực phẩm nên làm bằng inox hoặc vật liệu không thấm nước, không bị oxy hóa, dễ lau chùi và khử khuẩn (Thông tư 30/2012/TT-BYT).'},
 ];
 
 const SECTIONS = {
-  bep:{label:'🍳 Khu vực bếp',badge:'badge-bep'},
-  pha:{label:'🧋 Khu vực pha chế',badge:'badge-pha'},
-  kho:{label:'📦 Kho & Bảo quản',badge:'badge-kho'},
-  con:{label:'👤 Con người & VS cá nhân',badge:'badge-con'},
+  bep:  {label:'🍳 Khu vực bếp',                 badge:'badge-bep'},
+  pha:  {label:'🧋 Khu vực pha chế',              badge:'badge-pha'},
+  kho:  {label:'📦 Kho & Bảo quản',               badge:'badge-kho'},
+  con:  {label:'👤 Con người & VS cá nhân',       badge:'badge-con'},
+  giay: {label:'📋 Giấy tờ pháp lý',              badge:'badge-giay'},
+  moi:  {label:'🏠 Môi trường & Cơ sở vật chất', badge:'badge-moi'},
 };
 
-const OPTS = ['Có ✅','Có nhưng chưa đều ⚠️','Chưa ❌','Chưa kiểm soát 🔍'];
-const SCORE = {'Có ✅':2,'Có nhưng chưa đều ⚠️':1,'Chưa ❌':0,'Chưa kiểm soát 🔍':0};
-const CLS   = {'Có ✅':'yes','Có nhưng chưa đều ⚠️':'partial','Chưa ❌':'no','Chưa kiểm soát 🔍':'unknown'};
+const OPTS  = ['Có ✅','Có nhưng chưa đều ⚠️','Chưa ❌','Chưa kiểm soát 🔍','Không áp dụng N/A'];
+const SCORE = {'Có ✅':2,'Có nhưng chưa đều ⚠️':1,'Chưa ❌':0,'Chưa kiểm soát 🔍':0,'Không áp dụng N/A':null};
+const CLS   = {'Có ✅':'yes','Có nhưng chưa đều ⚠️':'partial','Chưa ❌':'no','Chưa kiểm soát 🔍':'unknown','Không áp dụng N/A':'na'};
 
-// Quick actions mapping per section
-const QUICK_ACTIONS = {
-  bep:[
-    'Nhắc nhở toàn bộ nhân sự bếp đeo khẩu trang và đội mũ ngay từ đầu ca, không chờ bị nhắc.',
-    'Kiểm tra và phân tách dụng cụ chế biến tươi sống / đã chín — dán nhãn màu để phân biệt.',
-    'Dán sơ đồ quy trình 1 chiều tại khu vực bếp để nhân viên đối chiếu hằng ngày.',
-    'Thực hiện 5S bếp ngay hôm nay: Sàng lọc, Sắp xếp, Sạch sẽ, Săn sóc, Sẵn sàng.',
-  ],
-  pha:[
-    'Kiểm tra trang phục pha chế toàn bộ nhân viên ngay đầu ca: khẩu trang, tóc buộc/mũ, không trang sức.',
-    'Vệ sinh toàn bộ dụng cụ pha chế (shaker, ly, muỗng) theo đúng quy trình — kiểm tra ngay.',
-    'Sắp xếp lại quầy pha chế theo đúng vị trí quy định, dán nhãn vị trí từng loại nguyên liệu.',
-  ],
-  kho:[
-    'Kiểm tra toàn bộ kho — sắp xếp lại theo FIFO, hàng cũ ra trước, hàng mới vào sau.',
-    'Đo khoảng cách kệ với sàn (≥20cm) và tường (≥50cm) — điều chỉnh ngay nếu chưa đạt.',
-    'Kiểm tra nhiệt độ tủ mát ngay lúc này và thiết lập lịch theo dõi mỗi 1 giờ trong ca.',
-    'Dán tem DUE lên tất cả nguyên liệu đã khui bao bì: ghi rõ D (HSD gốc) / U (ngày mở) / E (hết hạn cửa hàng).',
-  ],
-  con:[
-    'Hướng dẫn lại quy trình rửa tay 6 bước cho toàn bộ nhân viên — thực hành ngay tại chỗ.',
-    'In và dán checklist vệ sinh đầu ca tại khu vực bếp và pha chế để nhân viên tự kiểm tra.',
-  ],
-};
+const OPEN_QS = [
+  {key:'oa1', label:'💬 Khó khăn', q:'Cửa hàng mình đang gặp khó khăn gì trong việc duy trì vệ sinh ATTP?'},
+  {key:'oa2', label:'💡 Góp ý',    q:'Anh/chị có đề xuất hoặc ý kiến gì để Bộ phận Operations và Hệ thống Phúc Tea hỗ trợ tốt hơn không?'},
+];
 
-// Documents to send based on failed sections
-const DOCS_MAP = {
-  bep:'Module 02 – Vệ sinh ATTP (Tiêu chuẩn khu vực bếp)',
-  pha:'Module 02 – Vệ sinh ATTP (Tiêu chuẩn khu vực pha chế)',
-  kho:'Module 07 – Kiểm soát chất lượng sản phẩm (Bảo quản kho & tủ mát)',
-  con:'Module 02 – Vệ sinh ATTP (Vệ sinh cá nhân & thực hành bàn tay tốt)',
-};
+const TOTAL_STEPS = QUESTIONS.length + OPEN_QS.length;
+document.getElementById('stat-q').textContent = QUESTIONS.length;
 
-let cur = 0;
-let answers = {};
-let openAnswers = { oa1: '', oa2: '' };
+// ── STATE ────────────────────────────────────────────────
+let cur = 0, answers = {}, openAnswers = {oa1:'',oa2:''};
 let surveyor = '', branch = '';
-let submitStatus = null;
-const TOTAL_STEPS = 17; // 15 câu + 2 tự luận
 
-// ─── NAVIGATION ─────────────────────────────────────────
+// ── NAVIGATION ───────────────────────────────────────────
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   window.scrollTo(0,0);
 }
 
-// ─── INTRO ──────────────────────────────────────────────
+// ── INTRO ────────────────────────────────────────────────
 function startQuiz(){
-  const sEl = document.getElementById('inp-surveyor');
-  const bEl = document.getElementById('inp-branch');
-  const errS = document.getElementById('err-surveyor');
-  const errB = document.getElementById('err-branch');
-  let ok = true;
+  const sEl=document.getElementById('inp-surveyor');
+  const bEl=document.getElementById('inp-branch');
+  const errS=document.getElementById('err-surveyor');
+  const errB=document.getElementById('err-branch');
+  let ok=true;
   if(!sEl.value.trim()){sEl.classList.add('error');errS.classList.add('show');ok=false;}
   else{sEl.classList.remove('error');errS.classList.remove('show');}
   if(!bEl.value.trim()){bEl.classList.add('error');errB.classList.add('show');ok=false;}
   else{bEl.classList.remove('error');errB.classList.remove('show');}
   if(!ok) return;
-  surveyor = sEl.value.trim();
-  branch   = bEl.value.trim();
-  cur = 0; answers = {}; openAnswers = {oa1:'',oa2:''}; submitStatus = null;
-  document.getElementById('quiz-branch-label').textContent = branch.split(' - ')[0];
-  showPage('page-quiz');
-  renderQuiz();
+  surveyor=sEl.value.trim(); branch=bEl.value.trim();
+  cur=0; answers={}; openAnswers={oa1:'',oa2:''};
+  document.getElementById('quiz-branch-label').textContent=branch.split(' - ')[0]||branch;
+  showPage('page-quiz'); renderQuiz();
 }
 
-// ─── QUIZ ────────────────────────────────────────────────
+// ── QUIZ ─────────────────────────────────────────────────
 function renderQuiz(){
-  // cur 0–14 = trắc nghiệm, cur 15–16 = tự luận
-  if(cur < QUESTIONS.length){
-    renderMCQ();
-  } else {
-    renderOpen(cur - QUESTIONS.length); // 0 hoặc 1
-  }
+  if(cur<QUESTIONS.length) renderMCQ();
+  else renderOpen(cur-QUESTIONS.length);
 }
 
 function renderMCQ(){
-  const q   = QUESTIONS[cur];
-  const sec = SECTIONS[q.sec];
-  const pct = Math.round((cur/TOTAL_STEPS)*100);
-  const secChange = cur===0 || QUESTIONS[cur-1].sec !== q.sec;
-
-  document.getElementById('quiz-body').innerHTML = `
+  const q=QUESTIONS[cur];
+  const sec=SECTIONS[q.sec];
+  const pct=Math.round((cur/TOTAL_STEPS)*100);
+  const secChange=cur===0||QUESTIONS[cur-1].sec!==q.sec;
+  document.getElementById('quiz-body').innerHTML=`
     <div class="prog-wrap">
-      <div class="prog-top">
-        <span class="prog-sec">${sec.label}</span>
-        <span class="prog-count">${cur+1} / ${TOTAL_STEPS}</span>
-      </div>
+      <div class="prog-top"><span class="prog-sec">${sec.label}</span><span class="prog-count">${cur+1} / ${TOTAL_STEPS}</span></div>
       <div class="prog-bar"><div class="prog-fill" style="width:${pct}%"></div></div>
     </div>
-
     <div class="card">
       ${secChange?`<div class="sec-badge ${sec.badge}">${sec.label}</div>`:''}
       <div class="q-text">${q.q}</div>
+      ${q.hint?`<div class="q-hint">💡 ${q.hint}</div>`:''}
       <div class="opts">
         ${OPTS.map(o=>`
-          <button class="opt ${answers[q.id]===o?CLS[o]:''}" onclick="pick('${o.replace(/'/g,"\\'")}')">
+          <button class="opt ${answers[q.id]===o?CLS[o]:''}" onmousedown="event.preventDefault();pick('${o.replace(/'/g,"\\'")}')">
             <div class="opt-dot"></div><span>${o}</span>
           </button>`).join('')}
       </div>
     </div>
-
     <div class="nav">
       ${cur>0?`<button class="btn-back" onclick="goBack()">←</button>`:''}
-      <button class="btn btn-primary" id="btn-next" onclick="goNext()" ${answers[q.id]?'':'disabled'}>
-        Tiếp theo →
-      </button>
-    </div>
-  `;
+      <button class="btn btn-primary" onclick="goNext()" ${answers[q.id]?'':'disabled'}>Tiếp theo →</button>
+    </div>`;
 }
-
-const OPEN_QS = [
-  { key:'oa1', label:'💬 Chia sẻ thêm', q:'Anh/chị đang gặp khó khăn gì trong việc duy trì vệ sinh ATTP tại cửa hàng?' },
-  { key:'oa2', label:'💡 Góp ý', q:'Anh/chị có đề xuất hoặc ý kiến gì để Bộ phận Operations và Hệ thống Phúc Tea hỗ trợ tốt hơn không?' },
-];
 
 function renderOpen(idx){
-  const oq  = OPEN_QS[idx];
-  const pct = Math.round(((QUESTIONS.length + idx)/TOTAL_STEPS)*100);
-  const val = openAnswers[oq.key];
-
-  document.getElementById('quiz-body').innerHTML = `
+  const oq=OPEN_QS[idx];
+  const pct=Math.round(((QUESTIONS.length+idx)/TOTAL_STEPS)*100);
+  document.getElementById('quiz-body').innerHTML=`
     <div class="prog-wrap">
-      <div class="prog-top">
-        <span class="prog-sec">${oq.label}</span>
-        <span class="prog-count">${QUESTIONS.length+idx+1} / ${TOTAL_STEPS}</span>
-      </div>
+      <div class="prog-top"><span class="prog-sec">${oq.label}</span><span class="prog-count">${QUESTIONS.length+idx+1} / ${TOTAL_STEPS}</span></div>
       <div class="prog-bar"><div class="prog-fill" style="width:${pct}%"></div></div>
     </div>
-
     <div class="card">
-      <div class="sec-badge" style="background:#F0FDF4;color:#166534;border:1px solid #86EFAC">✍️ Câu hỏi mở</div>
+      <div class="open-badge">✍️ Câu hỏi mở — không bắt buộc</div>
       <div class="q-text">${oq.q}</div>
-      <textarea
-        id="open-textarea"
-        placeholder="Nhập ý kiến của anh/chị tại đây... (không bắt buộc)"
-        style="width:100%;min-height:120px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-family:inherit;color:var(--text);resize:vertical;outline:none;transition:border .2s;line-height:1.6;"
-        onfocus="this.style.borderColor='var(--orange)'"
-        onblur="this.style.borderColor='var(--border)'"
-        oninput="openAnswers['${oq.key}']=this.value"
-      >${val}</textarea>
-      <div style="font-size:12px;color:var(--text-3);margin-top:6px;">Câu hỏi này không bắt buộc — bỏ qua nếu không có ý kiến.</div>
+      <textarea id="open-ta" placeholder="Nhập ý kiến của anh/chị tại đây — bỏ qua nếu không có..."
+        style="width:100%;min-height:120px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-family:inherit;color:var(--text);resize:vertical;outline:none;line-height:1.6;"
+        onfocus="this.style.borderColor='var(--orange)'" onblur="this.style.borderColor='var(--border)'"
+      >${openAnswers[oq.key]}</textarea>
     </div>
-
     <div class="nav">
       <button class="btn-back" onclick="goBack()">←</button>
-      <button class="btn btn-primary" onclick="goNext()">
-        ${idx < OPEN_QS.length-1 ? 'Tiếp theo →' : 'Xem kết quả →'}
-      </button>
-    </div>
-  `;
-  // restore saved value
-  const ta = document.getElementById('open-textarea');
-  if(ta) ta.value = val;
+      <button class="btn btn-primary" onclick="goNext()">${idx<OPEN_QS.length-1?'Tiếp theo →':'Xem kết quả →'}</button>
+    </div>`;
+  const ta=document.getElementById('open-ta');
+  if(ta) ta.value=openAnswers[oq.key];
 }
 
-function pick(opt){
-  answers[QUESTIONS[cur].id] = opt;
-  renderQuiz();
-}
-
-function goBack(){
-  if(cur>0){cur--;renderQuiz();}
-}
-
+function pick(opt){ answers[QUESTIONS[cur].id]=opt; renderMCQ(); }
+function goBack(){ if(cur>0){cur--;renderQuiz();} }
 function goNext(){
-  if(cur < QUESTIONS.length){
+  if(cur<QUESTIONS.length){
     if(!answers[QUESTIONS[cur].id]) return;
     cur++; renderQuiz();
   } else {
-    // save open textarea value before moving
-    const ta = document.getElementById('open-textarea');
-    const idx = cur - QUESTIONS.length;
-    if(ta) openAnswers[OPEN_QS[idx].key] = ta.value;
-    if(cur < QUESTIONS.length + OPEN_QS.length - 1){
-      cur++; renderQuiz();
-    } else {
-      showPage('page-result'); renderResult(); submitToSheet();
-    }
+    const ta=document.getElementById('open-ta');
+    const idx=cur-QUESTIONS.length;
+    if(ta) openAnswers[OPEN_QS[idx].key]=ta.value;
+    if(cur<QUESTIONS.length+OPEN_QS.length-1){ cur++; renderQuiz(); }
+    else { showPage('page-result'); renderResult(); submitToSheet(); }
   }
 }
 
-// ─── SCORING ────────────────────────────────────────────
+// ── SCORING ──────────────────────────────────────────────
 function calcTotal(){
-  let t=0,m=QUESTIONS.length*2;
-  QUESTIONS.forEach(q=>{t+=SCORE[answers[q.id]]||0;});
-  return{t,m,pct:Math.round((t/m)*100)};
+  let t=0,m=0;
+  QUESTIONS.forEach(q=>{ const s=SCORE[answers[q.id]]; if(s!==null&&s!==undefined){t+=s;m+=2;} });
+  return{t,m,pct:m>0?Math.round((t/m)*100):0};
 }
 function calcSec(){
   const r={};
   Object.keys(SECTIONS).forEach(s=>{
     const qs=QUESTIONS.filter(q=>q.sec===s);
-    let t=0,m=qs.length*2;
-    qs.forEach(q=>{t+=SCORE[answers[q.id]]||0;});
-    r[s]=Math.round((t/m)*100);
+    let t=0,m=0;
+    qs.forEach(q=>{ const sc=SCORE[answers[q.id]]; if(sc!==null&&sc!==undefined){t+=sc;m+=2;} });
+    r[s]=m>0?Math.round((t/m)*100):null;
   });
   return r;
 }
 function getIssues(){
   return QUESTIONS.filter(q=>answers[q.id]==='Chưa ❌'||answers[q.id]==='Chưa kiểm soát 🔍'||answers[q.id]==='Có nhưng chưa đều ⚠️');
 }
-function failedSections(){
-  const sec=calcSec();
-  return Object.keys(sec).filter(s=>sec[s]<100);
-}
-function fillColor(p){return p>=80?'#66BB6A':p>=50?'#FFCA28':'#EF9A9A';}
+function fillColor(p){ if(p===null||p===undefined) return '#B0BEC5'; return p>=80?'#66BB6A':p>=50?'#FFCA28':'#EF9A9A'; }
 
-// ─── QUICK ACTIONS ──────────────────────────────────────
-function buildQuickActions(){
-  const issues = getIssues();
-  if(issues.length===0) return '<p style="font-size:14px;color:var(--text-2)">🎉 Không có hành động nào cần xử lý ngay. Duy trì tốt nhé!</p>';
-  // collect unique sections from issues
-  const secsNeeded = [...new Set(issues.map(q=>q.sec))];
-  let actions = [];
-  secsNeeded.forEach(s=>{
-    // find which specific questions failed in this section
-    const failedQs = issues.filter(q=>q.sec===s);
-    failedQs.forEach((q,i)=>{
-      if(QUICK_ACTIONS[s] && QUICK_ACTIONS[s][i]) actions.push(QUICK_ACTIONS[s][i]);
-    });
-  });
-  // deduplicate & limit to 6
-  actions = [...new Set(actions)].slice(0,6);
-  return actions.map((a,i)=>`
-    <div class="qa-item">
-      <div class="qa-num">${i+1}</div>
-      <div class="qa-text">${a}</div>
-    </div>`).join('');
-}
-
-// ─── DOCS TO SEND ───────────────────────────────────────
-function buildDocsList(){
-  const fs = failedSections();
-  if(fs.length===0) return '<p style="font-size:13px;color:var(--text-2)">Không có tài liệu cần bổ sung.</p>';
-  return fs.map(s=>`
-    <div class="doc-item">
-      <div class="doc-icon">📄</div>
-      <div>${DOCS_MAP[s]}</div>
-    </div>`).join('');
-}
-
-function docsString(){
-  const fs=failedSections();
-  if(fs.length===0) return 'Không cần gửi thêm tài liệu';
-  return fs.map(s=>DOCS_MAP[s]).join(' | ');
-}
-
-// ─── RESULT ─────────────────────────────────────────────
+// ── RESULT ───────────────────────────────────────────────
 function renderResult(){
-  const {t,m,pct} = calcTotal();
-  const sec = calcSec();
-  const issues = getIssues();
-  let ring='ring-bad',title='Cần khắc phục gấp ⚠️',sub='Nhiều tiêu chuẩn chưa tuân thủ. Xem hành động nhanh bên dưới và liên hệ Operations để được hỗ trợ.';
-  if(pct>=80){ring='ring-great';title='Xuất sắc! 🎉';sub='Chi nhánh đang tuân thủ tốt các tiêu chuẩn ATTP. Duy trì và cải thiện tiếp nhé!';}
+  const {t,m,pct}=calcTotal();
+  const sec=calcSec();
+  const issues=getIssues();
+  let ring='ring-bad',title='Cần khắc phục gấp ⚠️',sub='Nhiều tiêu chuẩn chưa được tuân thủ. Coi hành động cần làm ngay bên dưới và liên hệ Operations để được hỗ trợ.';
+  if(pct>=80){ring='ring-great';title='Xuất sắc! 🎉';sub='Cửa hàng đang tuân thủ tốt các tiêu chuẩn ATTP. Duy trì và cải thiện tiếp nhé!';}
   else if(pct>=50){ring='ring-ok';title='Cần cải thiện ⚠️';sub='Một số hạng mục chưa đạt chuẩn. Ưu tiên xử lý ngay các điểm bên dưới.';}
 
-  document.getElementById('result-body').innerHTML = `
-    <!-- SCORE -->
+  const ACTIONS={
+    bep:['Nhắc nhở toàn bộ nhân sự bếp đeo khẩu trang và đội nón ngay từ đầu ca, không chờ được nhắc.','Kiểm tra và phân tách dụng cụ chế biến tươi sống/chín — dán nhãn màu để phân biệt rõ.','Dán sơ đồ quy trình 1 chiều tại khu bếp để nhân viên đối chiếu hằng ngày.','Thực hiện 5S bếp ngay hôm nay — sàng lọc, sắp xếp, lau dọn toàn bộ khu vực.','Kiểm tra và lắp lưới chắn côn trùng, bẫy chuột tại các cửa ra vào khu bếp.','Kiểm tra thùng rác — phải có nắp đậy, đổ rác định kỳ ít nhất 1 lần/ngày.'],
+    pha:['Kiểm tra trang phục toàn bộ nhân viên pha chế ngay đầu ca: khẩu trang, tóc buộc/nón, không trang sức.','Vệ sinh toàn bộ dụng cụ pha chế đúng quy trình — rửa, tráng, để ráo tự nhiên.','Kiểm tra và thay bộ lọc nước nếu quá hạn — đảm bảo nguồn nước pha chế sạch.','Sắp xếp lại quầy pha chế — dán nhãn vị trí cố định cho từng loại nguyên liệu.'],
+    kho:['Rà soát và sắp xếp lại kho theo nguyên tắc FIFO — hàng cũ ra trước, hàng mới vào sau.','Kê toàn bộ hàng hóa cách sàn ≥20cm — mua thêm pallet hoặc kệ nếu cần.','Tách riêng khu lưu trữ thực phẩm và hóa chất — dán bảng phân khu rõ ràng.','Kiểm tra nhiệt độ tủ mát ngay bây giờ — thiết lập lịch theo dõi 2 lần/ca.','Dán tem DUE lên tất cả nguyên liệu đã khui: D/U/E ghi rõ ngày giờ cụ thể.','Kiểm tra toàn bộ hàng — loại bỏ ngay thực phẩm hết hạn hoặc có dấu hiệu hư hỏng.'],
+    con:['Hướng dẫn lại quy trình rửa tay 6 bước cho toàn bộ nhân viên — thực hành ngay tại chỗ.','Kiểm tra trang phục nhân viên — đồng phục phải sạch sẽ, đúng quy định trước khi vào ca.','In và dán bảng hướng dẫn rửa tay tại khu bếp và nhà vệ sinh.','In và dán checklist vệ sinh đầu ca — yêu cầu nhân viên ký xác nhận mỗi ngày.','Nhân viên đang có bệnh cần bố trí lại công việc không tiếp xúc thực phẩm ngay lập tức.'],
+    giay:['Kiểm tra hạn hiệu lực Giấy chứng nhận VSATTP — liên hệ Operations để được hỗ trợ gia hạn.','Lên lịch tập huấn kiến thức ATTP cho nhân viên chưa có giấy chứng nhận — nhắn Ops ngay.','Lên lịch khám sức khỏe định kỳ cho toàn bộ nhân viên tại trung tâm y tế địa phương.','Kiểm tra Giấy đăng ký kinh doanh và các giấy tờ pháp lý còn hiệu lực không.','Kiểm tra bình chữa cháy — liên hệ cơ quan PCCC địa phương để kiểm định định kỳ.'],
+    moi:['Kiểm tra và sửa chữa hệ thống đèn chiếu sáng khu vực bếp và pha chế cho đủ sáng.','Thông cống rãnh và lắp lưới chắn rác — vệ sinh định kỳ ít nhất 1 lần/tuần.','Bổ sung xà phòng, giấy lau tay tại nhà vệ sinh và khu rửa tay của nhân viên.','Coi lại bề mặt quầy bếp — thay thế nếu bị gỉ sét hoặc không đảm bảo vệ sinh.'],
+  };
+
+  const issuesBySec={};
+  issues.forEach(q=>{ if(!issuesBySec[q.sec]) issuesBySec[q.sec]=[]; issuesBySec[q.sec].push(q); });
+  let allActions=[];
+  Object.keys(issuesBySec).forEach(s=>{ if(ACTIONS[s]) ACTIONS[s].forEach(a=>allActions.push(a)); });
+  allActions=[...new Set(allActions)].slice(0,8);
+
+  document.getElementById('result-body').innerHTML=`
     <div class="card card-accent">
-      <div class="score-hero">
-        <div class="score-ring ${ring}">
-          <div class="score-pct">${pct}%</div>
-          <div class="score-pts">${t}/${m} điểm</div>
-        </div>
+      <div style="text-align:center;padding:8px 0 20px;">
+        <div class="score-ring ${ring}"><div class="score-pct">${pct}%</div><div class="score-pts">${t}/${m} điểm</div></div>
         <div class="r-title">${title}</div>
         <div class="r-sub">${sub}</div>
       </div>
-      <div style="font-size:13px;color:var(--text-2);text-align:center;padding-bottom:4px">
+      <div style="font-size:13px;color:var(--text-2);text-align:center;padding-bottom:4px;">
         📍 <strong style="color:var(--text)">${branch}</strong><br>
         👤 Khảo sát bởi: <strong style="color:var(--text)">${surveyor}</strong>
       </div>
       <div class="divider"></div>
       <div class="ss-title">Kết quả theo khu vực</div>
-      ${Object.keys(SECTIONS).map(s=>`
-        <div class="ss-row">
+      ${Object.keys(SECTIONS).map(s=>{
+        const p=sec[s];
+        return `<div class="ss-row">
           <span class="ss-label">${SECTIONS[s].label}</span>
-          <div class="ss-bar"><div class="ss-fill" style="width:${sec[s]}%;background:${fillColor(sec[s])}"></div></div>
-          <span class="ss-pct" style="color:${fillColor(sec[s])}">${sec[s]}%</span>
-        </div>`).join('')}
+          <div class="ss-bar"><div class="ss-fill" style="width:${p??0}%;background:${fillColor(p)}"></div></div>
+          <span class="ss-pct" style="color:${fillColor(p)}">${p!==null&&p!==undefined?p+'%':'N/A'}</span>
+        </div>`;
+      }).join('')}
     </div>
 
-    <!-- ISSUES -->
     ${issues.length>0?`
     <div class="card">
       <div class="ss-title">⚠️ Hạng mục chưa đạt (${issues.length})</div>
       ${issues.map(q=>{
-        const isDot=(answers[q.id]==='Chưa ❌'||answers[q.id]==='Chưa kiểm soát 🔍')?'dot-red':'dot-yellow';
-        const chip=(answers[q.id]==='Chưa ❌'||answers[q.id]==='Chưa kiểm soát 🔍')
-          ?`<span class="chip chip-red">${answers[q.id]}</span>`
-          :`<span class="chip chip-yellow">${answers[q.id]}</span>`;
-        return `<div class="issue-item"><div class="i-dot ${isDot}"></div><span>${q.q}${chip}</span></div>`;
+        const isRed=answers[q.id]==='Chưa ❌'||answers[q.id]==='Chưa kiểm soát 🔍';
+        return `<div class="issue-item">
+          <div class="i-dot ${isRed?'dot-red':'dot-yellow'}"></div>
+          <span>${q.q}<span class="chip ${isRed?'chip-red':'chip-yellow'}">${answers[q.id]}</span></span>
+        </div>`;
       }).join('')}
     </div>`:''}
 
-    <!-- QUICK ACTIONS -->
     <div class="card">
       <div class="ss-title">⚡ Hành động cần làm ngay hôm nay</div>
-      <div class="qa-wrap">${buildQuickActions()}</div>
+      ${allActions.length===0
+        ?'<p style="font-size:14px;color:var(--text-2)">🎉 Không có hành động nào cần xử lý ngay!</p>'
+        :allActions.map((a,i)=>`<div class="qa-item"><div class="qa-num">${i+1}</div><div class="qa-text">${a}</div></div>`).join('')}
     </div>
 
-    <!-- DOCS TO SEND -->
-    <div class="card">
-      <div class="ss-title">📚 Tài liệu Operations sẽ gửi cho chi nhánh</div>
-      <div style="font-size:13px;color:var(--text-2);margin-bottom:12px;line-height:1.6">
-        Dựa trên kết quả kiểm tra, bộ phận Operations sẽ gửi các tài liệu sau qua Zalo/email:
-      </div>
-      ${buildDocsList()}
-    </div>
-
-    <!-- OPS NOTE -->
-    <div class="ops-note">
-      <div class="ops-note-title">📬 Tài liệu sẽ được gửi cho chi nhánh</div>
-      <div class="ops-note-text">Bộ phận Operations sẽ gửi các tài liệu phù hợp cho anh/chị qua <strong>Zalo hoặc Email</strong> trong thời gian sớm nhất. Vui lòng để ý tin nhắn!</div>
-    </div>
-
-    <!-- OPEN ANSWERS SUMMARY -->
     ${(openAnswers.oa1||openAnswers.oa2)?`
     <div class="card">
       <div class="ss-title">✍️ Ý kiến của anh/chị</div>
-      ${openAnswers.oa1?`
-        <div style="margin-bottom:12px;">
-          <div style="font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:4px;">Khó khăn đang gặp phải</div>
-          <div style="font-size:14px;color:var(--text);line-height:1.7;background:var(--bg);padding:12px;border-radius:var(--radius-sm);">${openAnswers.oa1}</div>
-        </div>`:''}
-      ${openAnswers.oa2?`
-        <div>
-          <div style="font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:4px;">Đề xuất & góp ý</div>
-          <div style="font-size:14px;color:var(--text);line-height:1.7;background:var(--bg);padding:12px;border-radius:var(--radius-sm);">${openAnswers.oa2}</div>
-        </div>`:''}
+      ${openAnswers.oa1?`<div style="margin-bottom:12px;"><div style="font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:4px;">Khó khăn đang gặp phải</div><div style="font-size:14px;color:var(--text);line-height:1.7;background:var(--bg);padding:12px;border-radius:var(--radius-sm);">${openAnswers.oa1}</div></div>`:''}
+      ${openAnswers.oa2?`<div><div style="font-size:12px;font-weight:700;color:var(--text-2);margin-bottom:4px;">Đề xuất & góp ý</div><div style="font-size:14px;color:var(--text);line-height:1.7;background:var(--bg);padding:12px;border-radius:var(--radius-sm);">${openAnswers.oa2}</div></div>`:''}
     </div>`:''}
 
-    <!-- CONTACT -->
+    <div class="ops-note">
+      <div class="ops-note-title">📬 Bộ phận Operations sẽ liên hệ hỗ trợ</div>
+      <div class="ops-note-text">Dựa trên kết quả kiểm tra, bộ phận Operations sẽ gửi tài liệu và hỗ trợ anh/chị qua <strong>Zalo hoặc Email</strong> trong thời gian sớm nhất.</div>
+    </div>
+
+    <div class="learn-card">
+      <div class="learn-title">📚 Muốn học thêm về ATTP?</div>
+      <div class="learn-desc">Sau khi làm xong bài kiểm tra, anh/chị có thể học sâu hơn qua các kênh sau:</div>
+      <a class="learn-item" href="https://zalo.me/0357636539" target="_blank">
+        <div class="learn-item-icon">🎓</div>
+        <div><div class="learn-item-title">Đăng ký khóa học ATTP với Phúc Tea</div><div class="learn-item-sub">Nhắn Zalo cho Operations để được hướng dẫn học Module 02 & 07</div></div>
+      </a>
+      <a class="learn-item" href="https://zalo.me/0357636539" target="_blank">
+        <div class="learn-item-icon">📖</div>
+        <div><div class="learn-item-title">Nhận tài liệu SOP đầy đủ</div><div class="learn-item-sub">Bộ tài liệu chuẩn Phúc Tea về vệ sinh bếp, pha chế, kho hàng</div></div>
+      </a>
+      <a class="learn-item" href="https://zalo.me/0357636539" target="_blank">
+        <div class="learn-item-icon">🏥</div>
+        <div><div class="learn-item-title">Hỗ trợ giấy tờ pháp lý ATTP</div><div class="learn-item-sub">Operations hỗ trợ danh mục hồ sơ, lịch khám sức khỏe và tập huấn chứng nhận</div></div>
+      </a>
+    </div>
+
     <div class="contact-card">
       <div class="contact-title">💬 Có thắc mắc? Liên hệ ngay</div>
-      <div class="contact-info">
-        <strong>Dương Thanh Liêm</strong> – Operations Manager<br>
-        📞 0357 636 539
-      </div>
+      <div class="contact-info"><strong>Dương Thanh Liêm</strong> – Operations Manager<br>📞 0357 636 539</div>
       <a class="btn-zalo" href="https://zalo.me/0357636539" target="_blank">
         <img src="logo2.png" alt="Zalo" width="22" height="22" style="border-radius:4px;object-fit:contain;" onerror="this.style.display='none'">
         Nhắn Zalo ngay
       </a>
     </div>
 
-    <!-- RESTART -->
-    <button class="btn btn-primary" onclick="restart()" style="margin-bottom:8px">🔄 Kiểm tra chi nhánh khác</button>
+    <button class="btn btn-primary" onclick="restart()" style="margin-bottom:8px">🔄 Kiểm tra cửa hàng khác</button>
     <div class="footer-note">Phúc Tea – Hệ thống kiểm tra ATTP nội bộ<br>${new Date().toLocaleString('vi-VN')}</div>
   `;
 }
 
-// ─── GỬI KẾT QUẢ VỀ GOOGLE SHEET ───────────────────────
+// ── GỬI SHEET ────────────────────────────────────────────
 async function submitToSheet(){
   if(SHEET_WEBHOOK==='YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') return;
   const {t,m,pct}=calcTotal();
   const sec=calcSec();
   const payload={
-    timestamp: new Date().toLocaleString('vi-VN'),
-    surveyor,
-    branch,
-    score_pct: pct+'%',
-    score_total: `${t}/${m}`,
-    score_bep: sec.bep+'%',
-    score_pha: sec.pha+'%',
-    score_kho: sec.kho+'%',
-    score_con: sec.con+'%',
-    docs_to_send: docsString(),
-    kenh_gui: '',
-    q1:answers[1]||'', q2:answers[2]||'', q3:answers[3]||'',
-    q4:answers[4]||'', q5:answers[5]||'', q6:answers[6]||'',
-    q7:answers[7]||'', q8:answers[8]||'', q9:answers[9]||'',
-    q10:answers[10]||'', q11:answers[11]||'', q12:answers[12]||'',
-    q13:answers[13]||'', q14:answers[14]||'', q15:answers[15]||'',
-    oa1: openAnswers.oa1||'',
-    oa2: openAnswers.oa2||'',
+    timestamp:new Date().toLocaleString('vi-VN'),
+    surveyor, branch,
+    score_pct:pct+'%', score_total:`${t}/${m}`,
+    score_bep:sec.bep!==null?sec.bep+'%':'N/A',
+    score_pha:sec.pha!==null?sec.pha+'%':'N/A',
+    score_kho:sec.kho!==null?sec.kho+'%':'N/A',
+    score_con:sec.con!==null?sec.con+'%':'N/A',
+    score_giay:sec.giay!==null?sec.giay+'%':'N/A',
+    score_moi:sec.moi!==null?sec.moi+'%':'N/A',
+    kenh_gui:'',
+    oa1:openAnswers.oa1||'', oa2:openAnswers.oa2||'',
+    ...Object.fromEntries(QUESTIONS.map(q=>['q'+q.id,answers[q.id]||'']))
   };
-  try {
-    // Dùng no-cors để tránh lỗi CORS từ Vercel → Apps Script
-    await fetch(SHEET_WEBHOOK, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-  } catch(e) {
-    console.error('Submit error:', e);
-  }
+  try{ await fetch(SHEET_WEBHOOK,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}); }
+  catch(e){ console.error(e); }
 }
 
 function restart(){
   showPage('page-intro');
-  openAnswers = {oa1:'',oa2:''};
+  openAnswers={oa1:'',oa2:''};
   document.getElementById('inp-surveyor').value='';
   document.getElementById('inp-branch').value='';
 }
