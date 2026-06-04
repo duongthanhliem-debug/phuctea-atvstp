@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="vi">
-<link rel="icon" type="image/png" href="logoattp.png">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Phúc Tea – Food Safety Audit</title>
-<link rel="icon" type="image/png" href="logo3.png?v=5">
-<link rel="apple-touch-icon" href="logo3.png?v=5">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -199,7 +199,7 @@ body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--te
   <div class="brand-row">
     <div class="brand">
       <div class="brand-logo">
-        <img src="logo3.png" alt="Phúc Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <img src="logo1.png" alt="Phúc Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="brand-logo-fb">🍵</span>
       </div>
       <div><div class="brand-name" id="brand-name-intro">Phúc Tea</div><div class="brand-sub" id="brand-sub-intro">Hệ thống kiểm tra nội bộ</div></div>
@@ -225,7 +225,7 @@ body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--te
     </div>
     <div class="field">
       <label class="lbl" id="lbl-branch">Tên cửa hàng <span>*</span></label>
-      <input class="inp" id="inp-branch" type="text" placeholder="VD: PHUCTEA138 - TRẦN HOÀNG NA">
+      <input class="inp" id="inp-branch" type="text" placeholder="VD: PHUCTEA003 - TÔN ĐỨC THẮNG CAO LÃNH">
       <div class="err-msg" id="err-b">Vui lòng nhập tên cửa hàng</div>
     </div>
 
@@ -241,7 +241,7 @@ body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--te
       <div class="contact-box-icon">💬</div>
       <div>
         <div class="contact-box-title">Questions while doing the audit?</div>
-        <div class="contact-box-info">Contact <strong>Liam Duong – Ops Manager</strong> · WhatsApp +84 55 961 5385</div>
+        <div class="contact-box-info">Contact <strong>Duong Thanh Liem – Ops Manager</strong> · WhatsApp +84 55 961 5385</div>
       </div>
     </div>
 
@@ -256,7 +256,7 @@ body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--te
   <div class="brand-row">
     <div class="brand">
       <div class="brand-logo">
-        <img src="logo3.png" alt="Phúc Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <img src="logo1.png" alt="Phúc Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="brand-logo-fb">🍵</span>
       </div>
       <div><div class="brand-name" id="brand-name-quiz">Phúc Tea</div><div class="brand-sub" id="quiz-sub">Chi nhánh</div></div>
@@ -276,7 +276,7 @@ body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--te
   <div class="brand-row">
     <div class="brand">
       <div class="brand-logo">
-        <img src="logo3.png" alt="Phúc Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <img src="logo1.png" alt="Phúc Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="brand-logo-fb">🍵</span>
       </div>
       <div><div class="brand-name" id="brand-name-result">Phúc Tea</div><div class="brand-sub" id="result-sub">Kết quả kiểm tra</div></div>
@@ -288,7 +288,7 @@ body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--te
 
 <script>
 // ══════════════════════════════════════════════
-const SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbwoiORgHrm__Vjwzw2AMMO2Ky79I4FdSB0XlxRCDmXgMpXEbMoLYIpOkbhs11_cOpuwOQ/exec';
+const SHEET_WEBHOOK = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
 const ZALO_LINK   = 'https://zalo.me/0357636539';
 const WA_LINK     = 'https://wa.me/84559615385';
 // ══════════════════════════════════════════════
@@ -304,7 +304,7 @@ const T = {
     introDesc:'Tự đánh giá mức độ tuân thủ tiêu chuẩn vệ sinh ATTP tại cửa hàng theo SOP Phúc Tea và quy định pháp luật hiện hành. Kết quả gửi về Operations sau khi hoàn thành.',
     statQ:'Câu hỏi', statSec:'Khu vực', statTime:'Thời gian',
     lblSurveyor:'Tên người khảo sát',lblBranch:'Tên cửa hàng',
-    phSurveyor:'Họ và tên của bạn', phBranch:'VD: PHUCTEA138 - TRẦN HOÀNG NA',
+    phSurveyor:'Họ và tên của bạn', phBranch:'VD: PHUCTEA003 - TÔN ĐỨC THẮNG CAO LÃNH',
     errS:'Vui lòng nhập tên người khảo sát', errB:'Vui lòng nhập tên cửa hàng',
     btnStart:'Bắt đầu kiểm tra →',
     backBtn:'← Quay lại câu trước',
@@ -621,7 +621,7 @@ const OPEN_QS={
   ],
   en:[
     {key:'oa1',label:'💬 Challenges',q:'What challenges is your store facing in maintaining food safety standards?'},
-    {key:'oa2',label:'💡 Suggestions',q:'Do you have any suggestions to help the Operations team and HappiTea system support you better?'},
+    {key:'oa2',label:'💡 Suggestions',q:'Do you have any suggestions to help the Operations team and Phúc Tea system support you better?'},
   ],
 };
 
