@@ -288,7 +288,7 @@ body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--te
 
 <script>
 // ══════════════════════════════════════════════
-const SHEET_WEBHOOK = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+const SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbzG0yf438CJWOliKL6xlL8KHQB2VhRTCCebyn4RrCM9Bc3UIbxCtE20oXfJTaCRjT-y3A/exec';
 const ZALO_LINK   = 'https://zalo.me/0357636539';
 const WA_LINK     = 'https://wa.me/84559615385';
 // ══════════════════════════════════════════════
@@ -898,7 +898,7 @@ function renderResult(){
 
 // ── SUBMIT TO SHEET ───────────────────────────
 async function submitToSheet(){
-  if(SHEET_WEBHOOK==='YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') return;
+  if(SHEET_WEBHOOK==='https://script.google.com/macros/s/AKfycbzG0yf438CJWOliKL6xlL8KHQB2VhRTCCebyn4RrCM9Bc3UIbxCtE20oXfJTaCRjT-y3A/exec') return;
   const {t,m,pct}=calcTotal();
   const sec=calcSec();
   const payload={
